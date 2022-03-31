@@ -61,6 +61,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:inputType="textPassword"
+                android:textColor="@color/white"
                 android:textSize="7pt"
                 android:typeface="serif" />
         </com.google.android.material.textfield.TextInputLayout>

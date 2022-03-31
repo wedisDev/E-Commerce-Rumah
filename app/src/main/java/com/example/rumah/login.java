@@ -39,6 +39,13 @@ public class login extends AppCompatActivity {
                     Intent in = new Intent(login.this, dashboardAdmin.class);
                     login.this.startActivity(in);
                     finish();
+                }else  if (usernameKey.equals("nadya") && passwordKey.equals("123")){
+                    //jika login berhasil
+                    Toast.makeText(getApplicationContext(), "Sign In Success",
+                            Toast.LENGTH_SHORT).show();
+                    Intent in = new Intent(login.this, dashboardPembeli.class);
+                    login.this.startActivity(in);
+                    finish();
                 }else {
                     //jika login gagal
                     AlertDialog.Builder builder = new AlertDialog.Builder(login.this);
