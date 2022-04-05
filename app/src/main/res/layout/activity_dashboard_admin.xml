@@ -8,11 +8,5 @@
     android:background="@color/gray"
     tools:context=".dashboardAdmin">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:gravity="center_horizontal"
-        android:text="DASHBOARD ADMIN"
-        android:textColor="@color/white" />
+
 </LinearLayout>

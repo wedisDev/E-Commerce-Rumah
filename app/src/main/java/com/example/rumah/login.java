@@ -1,8 +1,5 @@
 package com.example.rumah;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +7,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 
 public class login extends AppCompatActivity {
     EditText username, password;
@@ -25,12 +26,27 @@ public class login extends AppCompatActivity {
         signIn = (Button)findViewById(R.id.signIn);
         signUp = (TextView) findViewById(R.id.signUp);
 
+
+
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 String usernameKey = username.getText().toString();
                 String passwordKey = password.getText().toString();
+
+                if (username.getText().toString().trim().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please fill out username field !",
+                            Toast.LENGTH_SHORT).show();
+                } else  if (password.getText().toString().trim().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please fill out password field !",
+                            Toast.LENGTH_SHORT).show();
+                } else {
+                    //jika login gagal
+                    AlertDialog.Builder builder = new AlertDialog.Builder(login.this);
+                    builder.setMessage("Incorrect username or password !")
+                            .setNegativeButton("Retry", null).create().show();
+                }
 
                 if (usernameKey.equals("admin") && passwordKey.equals("123")){
                     //jika login berhasil
@@ -46,11 +62,6 @@ public class login extends AppCompatActivity {
                     Intent in = new Intent(login.this, dashboardPembeli.class);
                     login.this.startActivity(in);
                     finish();
-                }else {
-                    //jika login gagal
-                    AlertDialog.Builder builder = new AlertDialog.Builder(login.this);
-                    builder.setMessage("Incorrect username or password !")
-                            .setNegativeButton("Retry", null).create().show();
                 }
             }
 

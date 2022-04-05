@@ -8,14 +8,7 @@
     android:orientation="vertical"
     tools:context=".Regist">
 
-<!--    <ImageButton-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:id="@+id/cancel"-->
-<!--        android:src="@drawable/cancel"-->
-<!--        android:backgroundTint="@color/gray"-->
-<!--        android:paddingLeft="10pt"-->
-<!--        android:paddingTop="10pt"/>-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,12 +17,7 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginBottom="2dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/logo"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +27,7 @@
             android:textColor="@color/white"
             android:textSize="10pt"
             android:textStyle="bold"
-            android:typeface="serif" />
+            android:fontFamily="@font/poppins" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -54,7 +42,7 @@
                 android:hint="Full Name"
                 android:textColor="@color/white"
                 android:textSize="7pt"
-                android:typeface="serif" />
+                android:fontFamily="@font/poppins"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -69,7 +57,7 @@
                 android:hint="Address"
                 android:textColor="@color/white"
                 android:textSize="7pt"
-                android:typeface="serif" />
+                android:fontFamily="@font/poppins" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -85,7 +73,7 @@
                 android:inputType="number"
                 android:textColor="@color/white"
                 android:textSize="7pt"
-                android:typeface="serif" />
+                android:fontFamily="@font/poppins" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -100,7 +88,7 @@
                 android:hint="Username"
                 android:textColor="@color/white"
                 android:textSize="7pt"
-                android:typeface="serif" />
+                android:fontFamily="@font/poppins"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -116,17 +104,36 @@
                 android:hint="Password"
                 android:textColor="@color/white"
                 android:textSize="7pt"
-                android:typeface="serif" />
+                android:fontFamily="@font/poppins" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/signUp"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:backgroundTint="@color/brown"
-            android:textColor="@color/white"
-            android:text="Sign Up"
-            android:textSize="7pt"/>
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+            <Button
+                android:id="@+id/signUp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button_rounded"
+                android:text="Sign Up"
+                android:textColor="@color/white"
+                android:textSize="7pt"
+                android:layout_marginRight="15pt"
+                android:fontFamily="@font/poppins"/>
+            <Button
+                android:id="@+id/back"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button_rounded"
+                android:text="Sign In"
+                android:textColor="@color/white"
+                android:textSize="7pt"
+                android:fontFamily="@font/poppins"/>
+        </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>
