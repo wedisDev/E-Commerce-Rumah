@@ -28,8 +28,6 @@ public class Regist extends AppCompatActivity {
         signUp =  findViewById(R.id.signUp);
         back = findViewById(R.id.back);
 
-
-
         customDialog customDialog = new customDialog(Regist.this);
         Intent login = new Intent(Regist.this, login.class);
         signUp.setOnClickListener(new View.OnClickListener() {
@@ -37,17 +35,13 @@ public class Regist extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (name.getText().toString().trim().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Please fill out name field !",
-                            Toast.LENGTH_SHORT).show();
+                    name.setError("Please fill out this field !");
                 } else  if (address.getText().toString().trim().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Please fill out address field !",
-                            Toast.LENGTH_SHORT).show();
+                    address.setError("Please fill out this field !");
                 }else  if (phone.getText().toString().trim().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Please fill out phone field !",
-                            Toast.LENGTH_SHORT).show();
+                    phone.setError("Please fill out this field !");
                 }else  if (username.getText().toString().trim().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Please fill out username field !",
-                            Toast.LENGTH_SHORT).show();
+                    username.setError("Please fill out this field !");
                 }else  if (pass.getText().toString().trim().isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please fill out password field !",
                             Toast.LENGTH_SHORT).show();
