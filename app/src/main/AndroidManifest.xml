@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.rumah">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -9,6 +11,18 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Rumah">
+        <activity
+            android:name=".updateRumah"
+            android:exported="false" />
+        <activity
+            android:name=".otpDialog"
+            android:exported="false" />
+        <activity
+            android:name=".kodeOtp"
+            android:exported="false" />
+        <activity
+            android:name=".iklanRumah"
+            android:exported="false" />
         <activity
             android:name=".dashboardPembeli"
             android:exported="false" />
@@ -20,7 +34,7 @@
             android:exported="false" />
         <activity
             android:name=".login"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".splash"
             android:exported="true"

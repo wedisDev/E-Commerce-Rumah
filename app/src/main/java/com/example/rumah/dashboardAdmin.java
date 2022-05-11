@@ -48,10 +48,14 @@ public class dashboardAdmin extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.a:
-                Toast.makeText(this, "Halaman A", Toast.LENGTH_SHORT).show();
+                Intent update = new Intent(dashboardAdmin.this, updateRumah.class);
+                dashboardAdmin.this.startActivity(update);
+                finish();
                 break;
             case R.id.b:
-                Toast.makeText(this, "Halaman B", Toast.LENGTH_SHORT).show();
+                Intent jual = new Intent(dashboardAdmin.this, iklanRumah.class);
+                dashboardAdmin.this.startActivity(jual);
+                finish();
                 break;
             case R.id.c:
                 Toast.makeText(this, "Halaman C", Toast.LENGTH_SHORT).show();

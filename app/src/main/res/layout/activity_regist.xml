@@ -4,137 +4,216 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="@drawable/gb"
     android:orientation="vertical"
     tools:context=".Regist">
-
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:padding="20dp">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="20pt"
-            android:text="S I G N  U P"
-            android:textColor="@color/white"
-            android:textSize="10pt"
-            android:textStyle="bold"
-            android:fontFamily="@font/poppins" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10pt"
-            android:backgroundTint="@color/brown">
-
-            <EditText
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Full Name"
-                android:textColor="@color/white"
-                android:textSize="7pt"
-                android:fontFamily="@font/poppins"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8pt">
-
-            <EditText
-                android:id="@+id/address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Address"
-                android:textColor="@color/white"
-                android:textSize="7pt"
-                android:fontFamily="@font/poppins" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8pt">
-
-            <EditText
-                android:id="@+id/phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Phone"
-                android:inputType="number"
-                android:textColor="@color/white"
-                android:textSize="7pt"
-                android:fontFamily="@font/poppins" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8pt">
-
-            <EditText
-                android:id="@+id/user"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Username"
-                android:textColor="@color/white"
-                android:textSize="7pt"
-                android:fontFamily="@font/poppins"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8pt"
-            app:passwordToggleEnabled="true">
-
-            <EditText
-                android:id="@+id/pass"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Password"
-                android:textColor="@color/white"
-                android:textSize="7pt"
-                android:fontFamily="@font/poppins" />
-        </com.google.android.material.textfield.TextInputLayout>
-
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal"
-            android:layout_marginTop="10pt">
-            <Button
-                android:id="@+id/signUp"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/button_rounded"
-                android:text="Sign Up"
-                android:textColor="@color/white"
-                android:textSize="7pt"
-                android:layout_marginRight="15pt"
-                android:fontFamily="@font/poppins"/>
-            <Button
-                android:id="@+id/back"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@drawable/button_rounded"
-                android:text="Sign In"
-                android:textColor="@color/white"
-                android:textSize="7pt"
-                android:fontFamily="@font/poppins"/>
-        </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="20dp">
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="20pt"
+                    android:fontFamily="@font/poppins"
+                    android:text="D A F T A R"
+                    android:textColor="@color/white"
+                    android:textSize="10pt"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="10pt"
+                    android:fontFamily="@font/poppins"
+                    android:text="A K U N"
+                    android:textColor="@color/white"
+                    android:textSize="10pt"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10pt"
+                android:backgroundTint="@color/white">
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nama "
+                    android:textColor="@color/white"
+                    android:textSize="7pt"
+                    android:fontFamily="@font/poppins"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8pt">
+
+                <EditText
+                    android:id="@+id/address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Alamat"
+                    android:textColor="@color/white"
+                    android:textSize="7pt"
+                    android:fontFamily="@font/poppins" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8pt">
+
+                <EditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nomor Telepon"
+                    android:inputType="number"
+                    android:textColor="@color/white"
+                    android:textSize="7pt"
+                    android:fontFamily="@font/poppins" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8pt">
+
+                <EditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/white"
+                    android:textSize="7pt"
+                    android:fontFamily="@font/poppins" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8pt">
+
+                <EditText
+                    android:id="@+id/user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nama Pengguna"
+                    android:textColor="@color/white"
+                    android:textSize="7pt"
+                    android:fontFamily="@font/poppins"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8pt"
+                app:passwordToggleEnabled="true">
+
+                <EditText
+                    android:id="@+id/pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Kata Sandi"
+                    android:textColor="@color/white"
+                    android:textSize="7pt"
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/poppins" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/poppins"
+                android:text="Daftar Sebagai"
+                android:textSize="16sp"
+                android:layout_marginTop="9pt"/>
+
+                <RadioGroup
+                    android:id="@+id/pendaftar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checkedButton="@+id/pendaftar"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/penjual"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:buttonTint="@color/white"
+                        android:fontFamily="@font/poppins"
+                        android:text="Penjual"
+                        android:textColor="@color/white"
+                        android:textSize="8pt"/>
+
+                    <RadioButton
+                        android:id="@+id/pembeli"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:buttonTint="@color/white"
+                        android:fontFamily="@font/poppins"
+                        android:text="Pembeli"
+                        android:textColor="@color/white"
+                        android:textSize="8pt"/>
+                </RadioGroup>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="10pt">
+                <Button
+                    android:id="@+id/signUp"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/button_rounded"
+                    android:text="Verifikasi"
+                    android:textColor="@color/white"
+                    android:textSize="7pt"
+                    android:layout_marginRight="15pt"
+                    android:fontFamily="@font/poppins"/>
+                <Button
+                    android:id="@+id/back"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/button_rounded"
+                    android:text="MASUK"
+                    android:textColor="@color/white"
+                    android:textSize="7pt"
+                    android:fontFamily="@font/poppins"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

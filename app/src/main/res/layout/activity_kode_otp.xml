@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gb"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    tools:context=".kodeOtp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="KODE OTP"
+        android:textColor="@color/white"
+        android:textSize="14pt"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins"
+        android:gravity="center_horizontal"
+        android:paddingBottom="30dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Masukkan kode otp yang telah dikirim melalui nomor telepon anda"
+        android:textColor="@color/white"
+        android:textSize="8pt"
+        android:fontFamily="@font/poppins"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="15pt">
+        <EditText
+            android:layout_width="30pt"
+            android:layout_height="30pt"
+            android:id="@+id/kode1"
+            android:background="@drawable/boxfill"
+            android:inputType="number"
+            android:maxLength="1"
+            android:gravity="center"
+            android:textColor="@color/white"
+            />
+        <EditText
+            android:layout_width="30pt"
+            android:layout_height="30pt"
+            android:id="@+id/kode2"
+            android:background="@drawable/boxfill"
+            android:inputType="number"
+            android:maxLength="1"
+            android:layout_marginLeft="8pt"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+        <EditText
+            android:layout_width="30pt"
+            android:layout_height="30pt"
+            android:id="@+id/kode3"
+            android:background="@drawable/boxfill"
+            android:inputType="number"
+            android:maxLength="1"
+            android:layout_marginLeft="8pt"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+        <EditText
+            android:layout_width="30pt"
+            android:layout_height="30pt"
+            android:id="@+id/kode4"
+            android:background="@drawable/boxfill"
+            android:inputType="number"
+            android:maxLength="1"
+            android:layout_marginLeft="8pt"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10pt">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tidak mendapatkan kode  ?"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginLeft="3pt"
+            android:id="@+id/send"
+            android:fontFamily="@font/poppins"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/daftar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_rounded"
+        android:text="Daftar"
+        android:fontFamily="@font/poppins"
+        android:layout_marginTop="15pt"
+        android:textColor="@color/white"
+        android:textSize="7pt"
+        />
+</LinearLayout>

@@ -28,8 +28,8 @@ public class Regist extends AppCompatActivity {
         signUp =  findViewById(R.id.signUp);
         back = findViewById(R.id.back);
 
-        customDialog customDialog = new customDialog(Regist.this);
-        Intent login = new Intent(Regist.this, login.class);
+        otpDialog otpDialog = new otpDialog(Regist.this);
+        Intent otp = new Intent(Regist.this, kodeOtp.class);
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,20 +43,18 @@ public class Regist extends AppCompatActivity {
                 }else  if (username.getText().toString().trim().isEmpty()) {
                     username.setError("Please fill out this field !");
                 }else  if (pass.getText().toString().trim().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Please fill out password field !",
+                    Toast.makeText(getApplicationContext(), "Lengkapi data!",
                             Toast.LENGTH_SHORT).show();
 
                 }else {
-                    customDialog.startDialog();
+                    otpDialog.startDialog();
                     Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            customDialog.dismissDialog();
-                            Regist.this.startActivity(login);
+                            otpDialog.otpDismiss();
+                            Regist.this.startActivity(otp);
                             finish();
-                            Toast.makeText(getApplicationContext(), "Regist Success ! ",
-                                    Toast.LENGTH_SHORT).show();
                         }
                     },3000);
                 }
@@ -68,6 +66,7 @@ public class Regist extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent login = new Intent(Regist.this, login.class);
                 Regist.this.startActivity(login);
                 finish();
             }
@@ -75,7 +74,5 @@ public class Regist extends AppCompatActivity {
 
 
     }
-    private void registAccount(String name,String address,String phone,String username,String pass){
 
-    }
 }

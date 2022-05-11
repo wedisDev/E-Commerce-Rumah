@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Home Living</string>
-    <string name="signUp"><u>Sign Up</u></string>
+    <string name="signUp"><u>Daftar</u></string>
+    <string name="send"><u>Kirim Ulang</u></string>
+
+    <string-array name="pilihan">
+        <item>Penjual</item>
+        <item>Pembeli</item>
+    </string-array>
 </resources>
