@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical"
+    tools:context=".akunAdmin">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/red"
+            android:id="@+id/toolbar">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/back"
+                        android:backgroundTint="@color/red"
+                        android:id="@+id/back"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center_horizontal"
+                    android:text="A K U N"
+                    android:textColor="@color/white"
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+        </Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile"
+                android:layout_width="80pt"
+                android:layout_height="80pt"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/profile" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/boxtext"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/nama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:elevation="2dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Adrew Bieber"
+                    android:textColor="@color/white"
+                    android:textSize="8pt" />
+
+                <TextView
+                    android:id="@+id/alamat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:elevation="2dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Jl. Kedung Baruk 123"
+                    android:textColor="@color/white"
+                    android:textSize="8pt" />
+
+                <TextView
+                    android:id="@+id/telp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:elevation="2dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="0857693114"
+                    android:textColor="@color/white"
+                    android:textSize="9pt" />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:elevation="2dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="adrew@yihaa.com"
+                    android:textColor="@color/white"
+                    android:textSize="8pt" />
+
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:elevation="2dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="adrewbb"
+                    android:textColor="@color/white"
+                    android:textSize="8pt" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/edit"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/button_rounded"
+                android:fontFamily="@font/poppins"
+                android:paddingTop="5dp"
+                android:text="Edit Akun"
+                android:textColor="@color/white"
+                android:textSize="7pt" />
+
+            <Button
+                android:id="@+id/signOut"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_rounded"
+                android:drawableRight="@drawable/out"
+                android:fontFamily="@font/poppins"
+                android:paddingRight="50px"
+                android:text="Keluar"
+                android:textColor="@color/white"
+                android:textSize="7pt" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

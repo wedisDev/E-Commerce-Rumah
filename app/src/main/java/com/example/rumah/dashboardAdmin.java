@@ -63,7 +63,9 @@ public class dashboardAdmin extends AppCompatActivity implements View.OnClickLis
                 finish();
                 break;
             case R.id.d:
-                Toast.makeText(this, "Halaman D", Toast.LENGTH_SHORT).show();
+                Intent akun = new Intent(dashboardAdmin.this, akunAdmin.class);
+                dashboardAdmin.this.startActivity(akun);
+                finish();
                 break;
         }
     }

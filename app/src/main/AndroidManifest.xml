@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.rumah">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Rumah">
         <activity
+            android:name=".editAkunAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".akunAdmin"
+            android:exported="false" />
+        <activity
             android:name=".daftarRumah"
             android:exported="false" />
         <activity
@@ -19,7 +26,8 @@
             android:exported="false" />
         <activity
             android:name=".otpDialog"
-            android:exported="false" />
+            android:exported="false"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".kodeOtp"
             android:exported="false" />
