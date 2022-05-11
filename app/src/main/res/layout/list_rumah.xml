@@ -41,33 +41,33 @@
                 android:textStyle="bold"/>
 
             <TextView
-            android:id="@+id/alamat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Alamat Rumah"
-            android:textColor="@color/white"
-            android:textSize="5pt"
-            android:fontFamily="@font/poppins"
-            android:layout_marginStart="10dp" />
+                android:id="@+id/alamat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat Rumah"
+                android:textColor="@color/white"
+                android:textSize="5pt"
+                android:fontFamily="@font/poppins"
+                android:layout_marginStart="10dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginLeft="4pt">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/kamar"/>
-            <TextView
-                android:id="@+id/kamar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3"
-                android:textColor="@color/white"
-                android:textSize="5pt"
-                android:fontFamily="@font/poppins"
-                android:layout_marginLeft="10dp"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/kamar"/>
+                <TextView
+                    android:id="@+id/kamar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:textColor="@color/white"
+                    android:textSize="5pt"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginLeft="10dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                     android:textSize="5pt"
                     android:fontFamily="@font/poppins"
                     android:layout_marginLeft="5dp"/>
-        </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -113,9 +113,11 @@
                 android:background="@drawable/sell"
                 android:fontFamily="@font/poppins"
                 android:paddingTop="5dp"
-                android:text="Terjual"
+                android:text="Lihat Detail"
                 android:textColor="@color/white"
                 android:textSize="6pt"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
                 />
         </LinearLayout>
     </LinearLayout>

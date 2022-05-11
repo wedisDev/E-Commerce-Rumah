@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Rumah">
         <activity
+            android:name=".daftarRumah"
+            android:exported="false" />
+        <activity
             android:name=".updateRumah"
             android:exported="false" />
         <activity
