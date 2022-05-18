@@ -16,6 +16,8 @@ public class login extends AppCompatActivity {
     EditText username, password;
     Button signIn;
     TextView signUp;
+    Intent in,admin;
+    String usernameKey,passwordKey;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,43 +34,33 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String usernameKey = username.getText().toString();
-                String passwordKey = password.getText().toString();
+                 usernameKey = username.getText().toString();
+                 passwordKey = password.getText().toString();
 
-                if (username.getText().toString().trim().isEmpty()) {
-                    username.setError("Please fill out this field !");
+                if (username.getText().toString().trim().isEmpty() || password.getText().toString().trim().isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Lengkapi data untuk masuk !!",
+                            Toast.LENGTH_SHORT).show();
                 } else  {
-                    if (password.getText().toString().trim().isEmpty()) {
-                        Toast.makeText(getApplicationContext(), "Please fill the password !",
-                                Toast.LENGTH_SHORT).show();
-//                    password.setError("Please fill this field !").;
-                    }else if (usernameKey.equals("admin") && passwordKey.equals("123")){
+                    if (usernameKey.equals("joko") && passwordKey.equals("123")){
                         //jika login berhasil
-                        Toast.makeText(getApplicationContext(), "Sign In Success",
-                                Toast.LENGTH_SHORT).show();
-                        Intent in = new Intent(login.this, dashboardAdmin.class);
-                        login.this.startActivity(in);
+                        Toast.makeText(getApplicationContext(), "Selamat Datang !", Toast.LENGTH_SHORT).show();
+                         admin = new Intent(login.this, dashboardAdmin.class);
+                        login.this.startActivity(admin);
                         finish();
                     }else  if (usernameKey.equals("nadya") && passwordKey.equals("123")){
                         //jika login berhasil
-                        Toast.makeText(getApplicationContext(), "Sign In Success",
-                                Toast.LENGTH_SHORT).show();
-                        Intent in = new Intent(login.this, dashboardPembeli.class);
+                        Toast.makeText(getApplicationContext(), "Selamat Datang !", Toast.LENGTH_SHORT).show();
+                         in = new Intent(login.this, dashboardPembeli.class);
                         login.this.startActivity(in);
                         finish();
                     }else {
                         //jika login gagal
                         AlertDialog.Builder builder = new AlertDialog.Builder(login.this);
-                        builder.setMessage("Incorrect username or password !")
+                        builder.setMessage("Data yang anda input salah !")
                                 .setNegativeButton("Retry", null).create().show();
                     }
                 }
-
-
-
-
             }
-
         });
 
         signUp.setOnClickListener(new View.OnClickListener() {

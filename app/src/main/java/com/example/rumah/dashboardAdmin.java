@@ -18,30 +18,11 @@ public class dashboardAdmin extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_admin);
 
-        signOut = findViewById(R.id.signOut);
+        signOut = ( Button) findViewById(R.id.signOut);
         a = findViewById(R.id.a);
         b = findViewById(R.id.b);
         c = findViewById(R.id.c);
         d = findViewById(R.id.d);
-
-        customDialog customDialog = new customDialog(dashboardAdmin.this);
-        Intent out = new Intent(dashboardAdmin.this, login.class);
-        signOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                customDialog.startDialog();
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        customDialog.dismissDialog();
-                        dashboardAdmin.this.startActivity(out);
-                        finish();
-                    }
-                },3000);
-            }
-        });
-
     }
 
     @Override
