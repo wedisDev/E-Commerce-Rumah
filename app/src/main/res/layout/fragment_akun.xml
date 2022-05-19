@@ -10,7 +10,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
         android:orientation="vertical"
         android:padding="15dp">
 
@@ -19,77 +18,136 @@
             android:layout_width="80pt"
             android:layout_height="80pt"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15pt"
             android:layout_marginBottom="10dp"
             android:src="@drawable/profile" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Addrew Bieber"
+            android:id="@+id/nama"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/white"
+            android:fontFamily="@font/poppins"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/boxtext"
+            android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="20dp">
-
+            android:padding="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/nama"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:elevation="2dp"
-                android:fontFamily="@font/poppins"
-                android:text="Adrew Bieber"
-                android:textColor="@color/white"
-                android:textSize="8pt" />
-
-            <TextView
+                android:text="Alamat Lengkap"
                 android:id="@+id/alamat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="10dp"
-                android:elevation="2dp"
+                android:textStyle="italic"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/white"
                 android:fontFamily="@font/poppins"
+                android:textSize="16dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Jl. Kedung Baruk 123"
+                android:layout_alignParentRight="true"
+                android:gravity="end"
+                android:id="@+id/edtalamat"
                 android:textColor="@color/white"
-                android:textSize="8pt" />
-
-            <TextView
-                android:id="@+id/telp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="10dp"
-                android:elevation="2dp"
+                android:textStyle="bold"
                 android:fontFamily="@font/poppins"
-                android:text="0857693114"
-                android:textColor="@color/white"
-                android:textSize="9pt" />
+                android:textSize="16dp"/>
+        </RelativeLayout>
 
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="10dp"
-                android:elevation="2dp"
-                android:fontFamily="@font/poppins"
-                android:text="adrew@yihaa.com"
-                android:textColor="@color/white"
-                android:textSize="8pt" />
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nomor Telepon"
+                    android:id="@+id/telp"
+                    android:textStyle="italic"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="16dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0812366587"
+                    android:layout_alignParentRight="true"
+                    android:gravity="end"
+                    android:id="@+id/edttelp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="16dp"/>
+            </RelativeLayout>
 
-            <TextView
-                android:id="@+id/username"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="10dp"
-                android:elevation="2dp"
-                android:fontFamily="@font/poppins"
-                android:text="adrewbb"
-                android:textColor="@color/white"
-                android:textSize="8pt" />
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:id="@+id/email"
+                    android:textStyle="italic"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="16dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="addrew@yihaa.com"
+                    android:layout_alignParentRight="true"
+                    android:gravity="end"
+                    android:id="@+id/edtemail"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="16dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/passw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:fontFamily="@font/poppins"
+                    android:text="Password"
+                    android:textColor="@color/white"
+                    android:textSize="16dp"
+                    android:textStyle="italic" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="123456"
+                    android:layout_alignParentRight="true"
+                    android:gravity="end"
+                    android:textStyle="bold"
+                    android:password="true"
+                    android:id="@+id/edtpassw"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="16dp"/>
+            </RelativeLayout>
         </LinearLayout>
 
         <Button
@@ -99,7 +157,7 @@
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15pt"
-            android:background="@drawable/button_rounded"
+            android:background="@drawable/button"
             android:fontFamily="@font/poppins"
             android:paddingTop="5dp"
             android:text="Edit Akun"
@@ -112,7 +170,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
-            android:background="@drawable/button_rounded"
+            android:background="@drawable/button"
             android:drawableRight="@drawable/out"
             android:fontFamily="@font/poppins"
             android:paddingRight="50px"

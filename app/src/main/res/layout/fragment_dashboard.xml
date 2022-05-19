@@ -19,11 +19,13 @@
             android:layout_height="wrap_content"
             android:background="@drawable/searchbox"
             android:hint="Pencarian"
-            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textColor="@color/brown"
             android:fontFamily="@font/poppins"
             android:drawableLeft="@drawable/cari"
             android:padding="10dp"
             android:layout_marginRight="5dp"
+            android:gravity="center_vertical"
             />
         <LinearLayout
             android:layout_width="wrap_content"
