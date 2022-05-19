@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/gray"
     android:layout_alignParentBottom="true"
     android:layout_alignParentTop="true"
@@ -13,9 +13,7 @@
     android:orientation="vertical"
     tools:context=".dashboardPembeli">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,19 +53,23 @@
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
 
-        <LinearLayout
+        <FrameLayout
+            android:id="@+id/main_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar"
-            android:orientation="vertical"
-            android:padding="8dp">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rcvrumah"
+            android:layout_above="@+id/bottom_navigation"
+            android:layout_below="@+id/toolbar"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"></FrameLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            tools:listitem="@layout/list_rumah"/>
-        </LinearLayout>
-    </RelativeLayout>
-</ScrollView>
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="23dp"
+            android:background="@color/brown"
+            app:itemIconTint="@color/white"
+            app:itemTextColor="@color/white"
+            app:menu="@menu/bottom_navigation_item" />
+
+</RelativeLayout>

@@ -1,22 +1,50 @@
 package com.example.rumah;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.View;
-import android.widget.Button;
+import android.view.MenuItem;
 
-public class dashboardPembeli extends AppCompatActivity {
-    Button out;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+public class dashboardPembeli extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_pembeli);
-
+        loadFragment(new DashboardFragment());
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(this);
     }
-
-
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Fragment fragment = null;
+        switch (menuItem.getItemId()){
+            case R.id.payment:
+                fragment = new PaymentFragment();
+                break;
+            case R.id.dashboard:
+                fragment = new DashboardFragment();
+                break;
+            case R.id.notif:
+                fragment = new NotifFragment();
+                break;
+            case R.id.akun:
+                fragment = new AkunFragment();
+                break;
+        }
+        return loadFragment(fragment);
+    }
+    private boolean loadFragment(Fragment fragment) {
+        if (fragment != null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.main_container, fragment)
+                    .commit();
+            return true;
+        }
+        return false;
+    }
 }
