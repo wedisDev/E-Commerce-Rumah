@@ -82,8 +82,6 @@ public class AkunFragment extends Fragment {
                 },2000);
             }
         });
-
-
         return v;
     }
 }

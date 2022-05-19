@@ -7,10 +7,15 @@
     android:background="@color/gray">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="NOTIF"
-        android:gravity="center"/>
-
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:padding="10dp">
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/rcvnotif"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:padding="12dp"
+           tools:listitem="@layout/list_notif"/>
+   </ScrollView>
 </FrameLayout>
