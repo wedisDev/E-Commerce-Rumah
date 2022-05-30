@@ -7,6 +7,42 @@
     android:background="@drawable/gb"
     android:orientation="vertical"
     tools:context=".Regist">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/back"
+                    android:backgroundTint="@color/cardview_shadow_end_color"
+                    android:id="@+id/back"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="15sp"
+                android:fontFamily="@font/poppins"
+                android:gravity="center_horizontal"
+                android:text="D A F T A R     A K U N"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </Toolbar>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -16,36 +52,8 @@
             android:layout_gravity="center_vertical"
             android:gravity="center_vertical"
             android:orientation="vertical"
-            android:padding="20dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="28dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginBottom="20pt"
-                    android:fontFamily="@font/poppins"
-                    android:text="D A F T A R"
-                    android:textColor="@color/white"
-                    android:textSize="10pt"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="10pt"
-                    android:fontFamily="@font/poppins"
-                    android:text="A K U N"
-                    android:textColor="@color/white"
-                    android:textSize="10pt"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            android:padding="20dp"
+            android:layout_marginTop="20dp">
 
 
 
@@ -183,35 +191,57 @@
                         android:textSize="8pt"/>
                 </RadioGroup>
 
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:text="Pilihan Bank"-->
+<!--                android:textSize="16sp"-->
+<!--                android:layout_marginTop="9pt"/>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="10pt">
+<!--            <Spinner-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:id="@+id/lisbank"-->
+<!--                android:entries="@array/bamk"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                style="@style/spinner_style"-->
+<!--                android:paddingTop="10dp"-->
+<!--                android:paddingBottom="10dp"-->
+<!--                android:enabled="false"-->
+<!--                android:focusable="false"-->
+<!--                />-->
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="8pt"-->
+<!--                android:layout_marginTop="10dp">-->
+
+<!--                <EditText-->
+<!--                    android:id="@+id/rek"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:hint="Nomor Rekening"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="7pt"-->
+<!--                    android:inputType="number"-->
+<!--                    android:fontFamily="@font/poppins"-->
+<!--                    android:enabled="false"/>-->
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+
                 <Button
                     android:id="@+id/signUp"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:background="@drawable/button_rounded"
+                    android:background="@drawable/button"
                     android:text="Verifikasi"
                     android:textColor="@color/white"
                     android:textSize="7pt"
-                    android:layout_marginRight="15pt"
-                    android:fontFamily="@font/poppins"/>
-                <Button
-                    android:id="@+id/back"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@drawable/button_rounded"
-                    android:text="MASUK"
-                    android:textColor="@color/white"
-                    android:textSize="7pt"
-                    android:fontFamily="@font/poppins"/>
-            </LinearLayout>
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginBottom="20dp" />
 
         </LinearLayout>
     </ScrollView>

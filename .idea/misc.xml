@@ -22,6 +22,7 @@
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/drawable/profile_background.xml" value="0.183" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/drawable/searchbox.xml" value="0.183" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/drawable/sell.xml" value="0.209" />
+        <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/drawable/spinner_bg.xml" value="0.215" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/drawable/splash.xml" value="0.2005" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/font/font.xml" value="0.26197916666666665" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/activity_akun_admin.xml" value="0.2" />
@@ -37,7 +38,7 @@
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/activity_otp_dialog.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/activity_pilih_regist.xml" value="0.1911231884057971" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/activity_preloader.xml" value="0.21739130434782608" />
-        <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/activity_regist.xml" value="0.176" />
+        <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/activity_regist.xml" value="0.264" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/activity_splash_screen.xml" value="0.21739130434782608" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/activity_update_rumah.xml" value="0.2" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/custom_dialog.xml" value="0.264" />
@@ -50,6 +51,7 @@
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/list_notif.xml" value="0.4" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/list_payment.xml" value="0.264" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/list_rumah.xml" value="0.264" />
+        <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/listbank.xml" value="0.2234375" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/loading_dialog.xml" value="0.18645833333333334" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/login.xml" value="0.264" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AndroidStudioProjects/rumah/app/src/main/res/layout/otp_dialog.xml" value="0.21829710144927536" />

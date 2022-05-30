@@ -7,25 +7,30 @@
     android:background="@color/gray">
 
     !-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:padding="15dp"
+        android:layout_marginTop="15pt">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile"
             android:layout_width="80pt"
             android:layout_height="80pt"
+            android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="10dp"
-            android:src="@drawable/profile" />
+            android:src="@drawable/profile"
+            android:layout_alignParentTop="true"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Addrew Bieber"
             android:id="@+id/nama"
+            android:layout_below="@+id/profile"
+            android:gravity="center_horizontal"
             android:layout_alignParentLeft="true"
             android:textColor="@color/white"
             android:fontFamily="@font/poppins"
@@ -39,7 +44,9 @@
             android:layout_marginTop="10dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="10dp"
+            android:id="@+id/data"
+            android:layout_below="@id/nama">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -152,8 +159,9 @@
 
         <Button
             android:id="@+id/editAkun"
-            android:layout_width="150dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
+            android:layout_below="@id/data"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15pt"
@@ -166,7 +174,7 @@
 
         <Button
             android:id="@+id/keluar"
-            android:layout_width="150dp"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
@@ -174,12 +182,14 @@
             android:drawableRight="@drawable/out"
             android:fontFamily="@font/poppins"
             android:paddingRight="50px"
+            android:layout_below="@id/editAkun"
+            android:layout_centerHorizontal="true"
             android:text="Keluar"
             android:textColor="@color/white"
             android:textSize="7pt" />
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 </FrameLayout>

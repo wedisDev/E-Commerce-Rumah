@@ -5,13 +5,17 @@
     </style>
 
     <style name="spinner_style">
-        <item name="android:dropDownWidth">800dp</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:dropDownWidth">533dp</item>
         <item name="android:showDividers">none</item>
         <item name="android:dividerHeight">0dp</item>
-        <item name="android:popupBackground">@color/gray</item>
-        <item name="android:dropDownHeight">70dp</item>
-        <item name="android:textSize">10pt</item>
+        <item name="android:layout_width">50dp</item>
         <item name="android:textColor">@color/white</item>
-        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:popupBackground">@color/gray</item>
+        <item name="android:borderlessButtonStyle">@drawable/spinner_bg</item>
+        <item name="android:dropDownHeight">70dp</item>
+        <item name="android:scrollbarAlwaysDrawVerticalTrack">true</item>
+        <item name="android:dropDownSelector">@android:color/white</item>
     </style>
 </resources>
