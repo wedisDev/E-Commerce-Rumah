@@ -8,15 +8,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.example.rumah.dialog.customDialog;
+import com.example.rumah.pembeli.dashboardPembeli;
+import com.example.rumah.penjual.dashboardAdmin;
 
 
 public class login extends AppCompatActivity {
     EditText username, password;
+    private StringRequest request;
+    private RequestQueue queue;
     Button signIn;
     TextView signUp;
-    Intent in,admin;
+    customDialog dia = new customDialog(login.this);
     String usernameKey,passwordKey;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,29 +44,28 @@ public class login extends AppCompatActivity {
                  usernameKey = username.getText().toString();
                  passwordKey = password.getText().toString();
 
-                if (username.getText().toString().trim().isEmpty() || password.getText().toString().trim().isEmpty()) {
+
+                if (usernameKey.trim().isEmpty() || passwordKey.trim().isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Lengkapi data untuk masuk !!",
                             Toast.LENGTH_SHORT).show();
-                } else  {
-                    if (usernameKey.equals("joko") && passwordKey.equals("123")){
-                        //jika login berhasil
-                        Toast.makeText(getApplicationContext(), "Selamat Datang !", Toast.LENGTH_SHORT).show();
-                         admin = new Intent(login.this, dashboardAdmin.class);
-                        login.this.startActivity(admin);
+                }else{
+                    if (usernameKey.equals("joko")&&passwordKey.equals("123")){
+                        Intent jual = new Intent(login.this, dashboardAdmin.class);
+                        dia.startDialog();
+                        signIn.setVisibility(View.INVISIBLE);
+                        login.this.startActivity(jual);
                         finish();
-                    }else  if (usernameKey.equals("nadya") && passwordKey.equals("123")){
-                        //jika login berhasil
-                        Toast.makeText(getApplicationContext(), "Selamat Datang !", Toast.LENGTH_SHORT).show();
-                         in = new Intent(login.this, dashboardPembeli.class);
-                        login.this.startActivity(in);
+
+                    }else if (usernameKey.equals("juki")&&passwordKey.equals("123")){
+                        Intent beli = new Intent(login.this, dashboardPembeli.class);
+                        login.this.startActivity(beli);
+                        dia.startDialog();
+                        signIn.setVisibility(View.INVISIBLE);
                         finish();
-                    }else {
-                        //jika login gagal
-                        AlertDialog.Builder builder = new AlertDialog.Builder(login.this);
-                        builder.setMessage("Data yang anda input salah !")
-                                .setNegativeButton("Retry", null).create().show();
+
                     }
                 }
+
             }
         });
 
@@ -72,4 +78,55 @@ public class login extends AppCompatActivity {
             }
         });
     }
+
+//    public void cekLogin() {
+
+//        queue = Volley.newRequestQueue(login.this);
+//        String URL = "http://192.168.1.33/rumah/login.php";
+//        request = new StringRequest(Request.Method.POST, URL, response -> {
+//
+//            try {
+//                JSONObject jsonObject = new JSONObject(response);
+//                // on below line we are displaying a success toast message.
+//
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//            // and setting data to edit text as empty
+//            username.setText("");
+//            password.setText("");
+//
+//        }, error -> {
+//            // method to handle errors.
+//            Log.e("Error", error.getMessage());
+//            Toast.makeText(login.this, "Fail to get response = " + error, Toast.LENGTH_SHORT).show();
+//        }) {
+//            @Override
+//            public String getBodyContentType() {
+//                // as we are passing data in the form of url encoded
+//                // so we are passing the content type below
+//                return "application/x-www-form-urlencoded; charset=UTF-8";
+//            }
+//
+//            @Override
+//            protected Map<String, String> getParams() {
+//
+//                // below line we are creating a map for storing
+//                // our values in key and value pair.
+//                HashMap<String, String> data = new HashMap<>();
+//
+//                // on below line we are passing our
+//                // key and value pair to our parameters.
+//
+//                data.put("usernameKey", usernameKey);
+//                data.put("passwordKey", passwordKey);
+//
+//                // at last we are returning our params.
+//                return data;
+//            }
+//        };
+//        // below line is to make
+//        // a json object request.
+//        queue.add(request);
+//    }
 }

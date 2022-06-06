@@ -1,4 +1,4 @@
-package com.example.rumah;
+package com.example.rumah.penjual;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,19 +7,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class iklanRumah extends AppCompatActivity {
+import com.example.rumah.R;
+
+public class updateRumah extends AppCompatActivity {
     ImageButton back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_iklan_rumah);
+        setContentView(R.layout.activity_update_rumah);
+
         back = (ImageButton) findViewById(R.id.back);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent dahsboard = new Intent(iklanRumah.this, dashboardAdmin.class);
-                iklanRumah.this.startActivity(dahsboard);
+                Intent dahsboard = new Intent(updateRumah.this, dashboardAdmin.class);
+                updateRumah.this.startActivity(dahsboard);
                 finish();
             }
         });

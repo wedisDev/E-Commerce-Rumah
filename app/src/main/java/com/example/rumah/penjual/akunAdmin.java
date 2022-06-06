@@ -1,4 +1,4 @@
-package com.example.rumah;
+package com.example.rumah.penjual;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,10 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
+
+import com.example.rumah.R;
+import com.example.rumah.dialog.customDialog;
+import com.example.rumah.login;
 
 public class akunAdmin extends AppCompatActivity {
     ImageButton back;

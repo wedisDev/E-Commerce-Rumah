@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:background="@color/gray"
     android:orientation="vertical"
-    tools:context=".dashboardPembeli">
+    tools:context=".pembeli.dashboardPembeli">
 
         <FrameLayout
             android:id="@+id/main_container"

@@ -39,7 +39,7 @@
         android:gravity="center_horizontal"
         android:layout_marginTop="15pt">
         <EditText
-            android:layout_width="30pt"
+            android:layout_width="23pt"
             android:layout_height="30pt"
             android:id="@+id/kode1"
             android:background="@drawable/boxfill"
@@ -47,37 +47,59 @@
             android:maxLength="1"
             android:gravity="center"
             android:textColor="@color/white"
+            android:layout_marginLeft="50sp"
             />
         <EditText
-            android:layout_width="30pt"
+            android:layout_width="23pt"
             android:layout_height="30pt"
             android:id="@+id/kode2"
             android:background="@drawable/boxfill"
             android:inputType="number"
             android:maxLength="1"
-            android:layout_marginLeft="8pt"
+            android:layout_marginLeft="5pt"
             android:gravity="center"
             android:textColor="@color/white"/>
         <EditText
-            android:layout_width="30pt"
+            android:layout_width="23pt"
             android:layout_height="30pt"
             android:id="@+id/kode3"
             android:background="@drawable/boxfill"
             android:inputType="number"
             android:maxLength="1"
-            android:layout_marginLeft="8pt"
+            android:layout_marginLeft="5pt"
             android:gravity="center"
             android:textColor="@color/white"/>
         <EditText
-            android:layout_width="30pt"
+            android:layout_width="23pt"
             android:layout_height="30pt"
             android:id="@+id/kode4"
             android:background="@drawable/boxfill"
             android:inputType="number"
             android:maxLength="1"
-            android:layout_marginLeft="8pt"
+            android:layout_marginLeft="5pt"
             android:gravity="center"
             android:textColor="@color/white"/>
+        <EditText
+            android:layout_width="23pt"
+            android:layout_height="30pt"
+            android:id="@+id/kode5"
+            android:background="@drawable/boxfill"
+            android:inputType="number"
+            android:maxLength="1"
+            android:layout_marginLeft="5pt"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+        <EditText
+            android:layout_width="23pt"
+            android:layout_height="30pt"
+            android:id="@+id/kode6"
+            android:background="@drawable/boxfill"
+            android:inputType="number"
+            android:maxLength="1"
+            android:layout_marginLeft="5pt"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:layout_marginRight="50sp"/>
     </LinearLayout>
 
     <LinearLayout

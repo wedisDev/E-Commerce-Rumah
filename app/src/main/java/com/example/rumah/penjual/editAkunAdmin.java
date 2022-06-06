@@ -1,4 +1,4 @@
-package com.example.rumah;
+package com.example.rumah.penjual;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.rumah.R;
+import com.example.rumah.dialog.customDialog;
 
 public class editAkunAdmin extends AppCompatActivity {
     EditText nama,alamat,telp,email,username,password;

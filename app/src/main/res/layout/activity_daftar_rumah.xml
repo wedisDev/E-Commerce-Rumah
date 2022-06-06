@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     android:background="@color/gray"
     android:orientation="vertical"
-    tools:context=".daftarRumah">
+    tools:context=".penjual.daftarRumah">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/red"
+            android:background="@color/brown"
             android:id="@+id/toolbar">
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:src="@drawable/back"
-                        android:backgroundTint="@color/red"
+                        android:backgroundTint="@color/brown"
                         android:id="@+id/back"/>
                 </LinearLayout>
 
@@ -54,7 +54,7 @@
             android:orientation="vertical"
             android:padding="15dp">
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvBahanBaku"
+                android:id="@+id/rcvRumah"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"

@@ -1,18 +1,20 @@
-package com.example.rumah;
+package com.example.rumah.dialog;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.view.LayoutInflater;
 
+import com.example.rumah.R;
+
 public class customDialog {
     private Activity activity;
     private AlertDialog alertDialog;
 
-    customDialog(Activity activity){
+    public customDialog(Activity activity){
         this.activity = activity;
     }
 
-    void startDialog(){
+    public void startDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         LayoutInflater inflater = activity.getLayoutInflater();
         builder.setView(inflater.inflate(R.layout.custom_dialog, null));
@@ -23,7 +25,7 @@ public class customDialog {
 
     }
 
-    void dismissDialog(){
+    public void dismissDialog(){
         alertDialog.dismiss();
     }
 }

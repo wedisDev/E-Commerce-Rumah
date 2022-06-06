@@ -14,35 +14,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Rumah">
         <activity
-            android:name=".editAkunAdmin"
+            android:name=".penjual.editAkunAdmin"
             android:exported="false" />
         <activity
-            android:name=".akunAdmin"
+            android:name=".penjual.akunAdmin"
             android:exported="false" />
         <activity
-            android:name=".daftarRumah"
+            android:name=".penjual.daftarRumah"
             android:exported="false" />
         <activity
-            android:name=".updateRumah"
+            android:name=".penjual.updateRumah"
             android:exported="false" />
         <activity
-            android:name=".otpDialog"
+            android:name=".dialog.otpDialog"
             android:exported="false"
             tools:ignore="Instantiatable" />
         <activity
             android:name=".kodeOtp"
             android:exported="false" />
         <activity
-            android:name=".iklanRumah"
+            android:name=".penjual.iklanRumah"
             android:exported="false" />
         <activity
-            android:name=".dashboardPembeli"
+            android:name=".pembeli.dashboardPembeli"
             android:exported="false" />
         <activity
             android:name=".Regist"
             android:exported="false" />
         <activity
-            android:name=".dashboardAdmin"
+            android:name=".penjual.dashboardAdmin"
             android:exported="false" />
         <activity
             android:name=".login"

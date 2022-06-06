@@ -1,37 +1,38 @@
 package com.example.rumah;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.rumah.dialog.customDialog;
+import com.example.rumah.dialog.otpDialog;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class Regist extends AppCompatActivity {
 
@@ -45,11 +46,17 @@ public class Regist extends AppCompatActivity {
     RadioGroup pendaftar;
     RadioButton penjual,pembeli;
     EditText name,address,phone,email,username,pass,rek;
+    ProgressBar progressBar;
+    otpDialog Sotp = new otpDialog(Regist.this);
+    customDialog dia = new customDialog(Regist.this);
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist);
+
+        mAuth = FirebaseAuth.getInstance();
 
         name        = (EditText)findViewById(R.id.name);
         address     = (EditText)findViewById(R.id.address);
@@ -86,11 +93,11 @@ public class Regist extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
                 }else{
                     if (penjual.isChecked()){
-                        Toast.makeText(getApplicationContext(), "Penjual", Toast.LENGTH_SHORT).show();
                         penjual();
+                        sendOtp();
                     }else if(pembeli.isChecked()){
-                        Toast.makeText(getApplicationContext(), "Pembeli", Toast.LENGTH_SHORT).show();
                         pembeli();
+                        sendOtp();
                     }
                 }
             }
@@ -114,7 +121,7 @@ public class Regist extends AppCompatActivity {
             try {
                 JSONObject jsonObject = new JSONObject(response);
                 // on below line we are displaying a success toast message.
-                Toast.makeText(Regist.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -162,6 +169,7 @@ public class Regist extends AppCompatActivity {
         // below line is to make
         // a json object request.
         queue.add(request);
+
     }
 
     public void pembeli() {
@@ -172,7 +180,7 @@ public class Regist extends AppCompatActivity {
             try {
                 JSONObject jsonObject = new JSONObject(response);
                 // on below line we are displaying a success toast message.
-                Toast.makeText(Regist.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -221,4 +229,40 @@ public class Regist extends AppCompatActivity {
         // a json object request.
         queue.add(request);
         }
+
+
+    private void sendOtp() {
+        signUp.setVisibility(View.INVISIBLE);
+        Sotp.startDialog();
+
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                "+62" + phone.getText().toString(),
+                60,
+                TimeUnit.SECONDS,
+                Regist.this,
+                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                    @Override
+                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+//                                            progressBar.setVisibility(View.GONE);
+                        signUp.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    public void onVerificationFailed(@NonNull FirebaseException e) {
+                        signUp.setVisibility(View.VISIBLE);
+                        Toast.makeText(Regist.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onCodeSent(@NonNull String backendotp, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                        signUp.setVisibility(View.VISIBLE);
+                        Intent intent=new Intent(getApplicationContext(),kodeOtp.class);
+                        intent.putExtra("mobile",phone.getText().toString());
+                        intent.putExtra("backendotp",backendotp);
+                        startActivity(intent);
+                    }
+                }
+
+        );
     }
+}
