@@ -49,7 +49,7 @@ public class Regist extends AppCompatActivity {
     ProgressBar progressBar;
     otpDialog Sotp = new otpDialog(Regist.this);
     customDialog dia = new customDialog(Regist.this);
-    private FirebaseAuth mAuth;
+    public FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,7 +115,7 @@ public class Regist extends AppCompatActivity {
 
     public void penjual() {
         queue = Volley.newRequestQueue(Regist.this);
-        String URL1 = "http://192.168.203.152/rumah/insertPenjual.php";
+        String URL1 = "http://192.168.100.124/rumah/insertPenjual.php";
         request = new StringRequest(Request.Method.POST, URL1, response -> {
 
             try {
@@ -174,7 +174,7 @@ public class Regist extends AppCompatActivity {
 
     public void pembeli() {
         queue = Volley.newRequestQueue(Regist.this);
-        String URL2 = "http://192.168.203.152/rumah/insertPembeli.php";
+        String URL2 = "http://192.168.100.124/rumah/insertPembeli.php";
         request = new StringRequest(Request.Method.POST, URL2, response -> {
 
             try {

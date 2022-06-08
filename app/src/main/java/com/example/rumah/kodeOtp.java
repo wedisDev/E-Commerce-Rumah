@@ -25,48 +25,56 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import java.util.concurrent.TimeUnit;
 
 public class kodeOtp extends AppCompatActivity {
-    EditText kode1, kode2, kode3, kode4;
+    EditText kode1, kode2, kode3, kode4,kode5,kode6;
     Button daftar;
-    String OTP,phone;
+    String OTP,phone,backendotp;
     TextView send;
+    public FirebaseAuth mAuth;
+    customDialog dia = new customDialog(kodeOtp.this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kode_otp);
 
+        mAuth = FirebaseAuth.getInstance();
+
         kode1 = (EditText) findViewById(R.id.kode1);
         kode2 = (EditText) findViewById(R.id.kode2);
         kode3 = (EditText) findViewById(R.id.kode3);
         kode4 = (EditText) findViewById(R.id.kode4);
+        kode5 = (EditText) findViewById(R.id.kode5);
+        kode6 = (EditText) findViewById(R.id.kode6);
         daftar = (Button)findViewById(R.id.daftar);
         send = (TextView) findViewById(R.id.send);
+
+        backendotp = getIntent().getStringExtra("backendotp");
 
         daftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 daftar();
 
-                customDialog customDialog = new customDialog(kodeOtp.this);
-                Intent daftar = new Intent(kodeOtp.this, login.class);
 
-                customDialog.startDialog();
+                Intent login = new Intent(kodeOtp.this, login.class);
+
+                dia.startDialog();
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        customDialog.dismissDialog();
+                        dia.dismissDialog();
                         finish();
                     }
                 },8000);
-                kodeOtp.this.startActivity(daftar);
+                kodeOtp.this.startActivity(login);
             }
         });
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Kode OTP Terkirim",
-                        Toast.LENGTH_LONG).show();
+                repeat();
             }
         });
     }
@@ -76,14 +84,15 @@ public class kodeOtp extends AppCompatActivity {
         OTP = kode1.getText().toString()+""+
                 kode2.getText().toString()+""+
                 kode3.getText().toString()+""+
-                kode4.getText().toString()+"";
+                kode4.getText().toString()+""+
+                kode5.getText().toString()+""+
+                kode6.getText().toString()+"";
 
         phone = getIntent().getStringExtra("phone");
-        String verificationId = getIntent().getStringExtra("verificationId");
 
-        if(verificationId != null){
+        if(backendotp != null){
             PhoneAuthCredential phoneAuthCredential = PhoneAuthProvider.getCredential(
-                    verificationId, OTP
+                    backendotp, OTP
             );
             FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -104,7 +113,7 @@ public class kodeOtp extends AppCompatActivity {
 
     private void repeat()
     {
-        phone = getIntent().getStringExtra("phone");
+        phone = getIntent().getStringExtra("mobile");
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 "+62"+phone,
                 60,
@@ -113,7 +122,7 @@ public class kodeOtp extends AppCompatActivity {
                 new PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
                     @Override
                     public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                        Toast.makeText(kodeOtp.this, "Kode Verifikasi Berhasil Dikirim", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(kodeOtp.this, "Kode OTP Berhasil Dikirim", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

@@ -3,7 +3,7 @@ package com.example.rumah.model;
 public class modelRumah {
     private String judul,alamat,kamar,mandi;
 
-    modelRumah(String judul,String alamat,String kamar,String mandi){
+    public modelRumah(String judul, String alamat, String kamar, String mandi){
         this.judul=judul;
         this.alamat=alamat;
         this.kamar=kamar;

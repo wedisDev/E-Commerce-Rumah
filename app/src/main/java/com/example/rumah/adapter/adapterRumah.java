@@ -9,38 +9,47 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.rumah.R;
 import com.example.rumah.model.modelRumah;
 import androidx.activity.result.contract.ActivityResultContracts;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class adapterRumah extends RecyclerView.Adapter<adapterRumah.ViewHolder> {
 
-    private List<modelRumah> rumahlist;
-    String judul,alamat,kamar,mandi;
+    private ArrayList<modelRumah> rumahlist;
+//    String judul,alamat,kamar,mandi;
 
-    public adapterRumah (List<modelRumah>rumahlist){
+    public adapterRumah (ArrayList<modelRumah>rumahlist){
         this.rumahlist=rumahlist;
     }
 
 
+
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_iklan,parent, false);
+    public adapterRumah.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_rumah,parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        judul = rumahlist.get(position).getJudul();
-        alamat = rumahlist.get(position).getAlamat();
-        kamar = rumahlist.get(position).getkamar();
-        mandi = rumahlist.get(position).getmandi();
+        modelRumah mr=rumahlist.get(position);
+//        Glide.with(holder.itemView.getContext()).load(mr.getkamar()).into(holder.tkamar);
 
-        holder.setData(judul,alamat,kamar,mandi);
+//        judul = rumahlist.get(position).getJudul();
+//        alamat = rumahlist.get(position).getAlamat();
+//        kamar = rumahlist.get(position).getkamar();
+//        mandi = rumahlist.get(position).getmandi();
+
+        holder.tjudul.setText(mr.getJudul());
+        holder.talamat.setText(mr.getAlamat());
+        holder.tkamar.setText(mr.getkamar());
+        holder.tmandi.setText(mr.getmandi());
     }
 
     @Override
@@ -49,7 +58,7 @@ public class adapterRumah extends RecyclerView.Adapter<adapterRumah.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView tjudul,talamat,tkamar,tmandi;
+        TextView tjudul,talamat,tkamar,tmandi;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -59,11 +68,5 @@ public class adapterRumah extends RecyclerView.Adapter<adapterRumah.ViewHolder> 
             tmandi = itemView.findViewById(R.id.bathup);
         }
 
-        public void setData(String judul, String alamat, String kamar, String mandi) {
-            tjudul.setText(judul);
-            talamat.setText(alamat);
-            tkamar.setText(kamar);
-            tmandi.setText(mandi);
-        }
     }
 }

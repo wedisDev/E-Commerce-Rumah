@@ -21,7 +21,7 @@ public class customDialog {
         builder.setCancelable(false);
 
         alertDialog = builder.create();
-        alertDialog.show();
+//        alertDialog.show();
 
     }
 
