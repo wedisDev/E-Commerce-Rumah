@@ -37,6 +37,7 @@ import java.util.concurrent.TimeUnit;
 public class Regist extends AppCompatActivity {
 
     private String tname,taddress,tphone,temail,tusername,tpass,tbank,trek,tdaftar;
+    String url = "10.212.137.165";
     //url tanpa internet 10.0.2.2
     //Stringrequest salah satu library volley utk menangkap data
     private StringRequest request;
@@ -46,10 +47,10 @@ public class Regist extends AppCompatActivity {
     RadioGroup pendaftar;
     RadioButton penjual,pembeli;
     EditText name,address,phone,email,username,pass,rek;
-    ProgressBar progressBar;
     otpDialog Sotp = new otpDialog(Regist.this);
     customDialog dia = new customDialog(Regist.this);
     public FirebaseAuth mAuth;
+    PhoneAuthProvider.OnVerificationStateChangedCallbacks mcCallbacks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,23 +82,28 @@ public class Regist extends AppCompatActivity {
                 tpass = pass.getText().toString().trim();
 
                 if (name.getText().toString().trim().isEmpty()) {
-                    name.setError("Please fill out this field !");
+                    name.setError("Lengkapi Nama Anda !");
                 } else  if (address.getText().toString().trim().isEmpty()) {
-                    address.setError("Please fill out this field !");
-                }else  if (phone.getText().toString().trim().isEmpty()) {
-                    phone.setError("Please fill out this field !");
+                    address.setError("Lengkapi Alamat Anda !");
+                }else  if (phone.getText().toString().trim().isEmpty() || phone.getText().toString().trim().length() <= 10 ) {
+                    phone.setError("Lengkapi Nomor Telepon Anda dengan Benar !");
                 }else  if (username.getText().toString().trim().isEmpty()) {
-                    username.setError("Please fill out this field !");
-                }else  if (pass.getText().toString().trim().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Lengkapi data!",
-                            Toast.LENGTH_SHORT).show();
+                    username.setError("Lengkapi Nama Pengguna Anda !");
+                }else  if (pass.getText().toString().trim().isEmpty() ) {
+//                    Toast.makeText(getApplicationContext(), "Lengkapi data!",
+//                            Toast.LENGTH_SHORT).show();
+                    username.setError("Lengkapi Kata Sandi Anda !");
                 }else{
+                    Intent test=new Intent(getApplicationContext(),login.class);
                     if (penjual.isChecked()){
                         penjual();
                         sendOtp();
+
+                        startActivity(test);
                     }else if(pembeli.isChecked()){
                         pembeli();
                         sendOtp();
+                        startActivity(test);
                     }
                 }
             }
@@ -115,7 +121,7 @@ public class Regist extends AppCompatActivity {
 
     public void penjual() {
         queue = Volley.newRequestQueue(Regist.this);
-        String URL1 = "http://192.168.100.124/rumah/insertPenjual.php";
+        String URL1 = "http://10.212.137.165/rumah/insertPenjual.php";
         request = new StringRequest(Request.Method.POST, URL1, response -> {
 
             try {
@@ -174,7 +180,7 @@ public class Regist extends AppCompatActivity {
 
     public void pembeli() {
         queue = Volley.newRequestQueue(Regist.this);
-        String URL2 = "http://192.168.100.124/rumah/insertPembeli.php";
+        String URL2 = "http://10.212.137.165/rumah/insertPembeli.php";
         request = new StringRequest(Request.Method.POST, URL2, response -> {
 
             try {
@@ -232,6 +238,8 @@ public class Regist extends AppCompatActivity {
 
 
     private void sendOtp() {
+
+
         signUp.setVisibility(View.INVISIBLE);
         Sotp.startDialog();
 
@@ -256,8 +264,12 @@ public class Regist extends AppCompatActivity {
                     @Override
                     public void onCodeSent(@NonNull String backendotp, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                         signUp.setVisibility(View.VISIBLE);
+                        Sotp.startDialog();
                         Intent intent=new Intent(getApplicationContext(),kodeOtp.class);
-                        intent.putExtra("mobile",phone.getText().toString());
+
+                        Toast.makeText(Regist.this, backendotp, Toast.LENGTH_SHORT).show();
+//                        Log.d(TAG,"onCodeSent : "+ backendotp)
+                        intent.putExtra("mobile",phone.getText().toString().trim());
                         intent.putExtra("backendotp",backendotp);
                         startActivity(intent);
                     }

@@ -3,7 +3,7 @@ package com.example.rumah.model;
 public class modelUpdate {
     private String judul,alamat,kamar,mandi;
 
-    modelUpdate(String judul,String alamat,String kamar,String mandi){
+    public modelUpdate(String judul, String alamat, String kamar, String mandi){
         this.judul=judul;
         this.alamat=alamat;
         this.kamar=kamar;

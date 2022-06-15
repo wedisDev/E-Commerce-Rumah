@@ -9,35 +9,37 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rumah.R;
+import com.example.rumah.model.modelRumah;
 import com.example.rumah.model.modelUpdate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class adapterUpdate extends RecyclerView.Adapter<adapterUpdate.ViewHolder> {
 
     private List<modelUpdate> updaterumahlist;
-    String judul,alamat,kamar,mandi;
+//    String judul,alamat,kamar,mandi;
 
-    public adapterUpdate (List<modelUpdate>updaterumahlist){
+    public adapterUpdate (ArrayList<modelUpdate> updaterumahlist){
         this.updaterumahlist=updaterumahlist;
     }
 
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_rumah,parent, false);
-        return new adapterUpdate.ViewHolder(view);
+    public adapterUpdate.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_iklan,parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull adapterUpdate.ViewHolder holder, int position) {
-        judul = updaterumahlist.get(position).getJudul();
-        alamat = updaterumahlist.get(position).getAlamat();
-        kamar = updaterumahlist.get(position).getkamar();
-        mandi = updaterumahlist.get(position).getmandi();
-
-        holder.setData(judul,alamat,kamar,mandi);
+        modelUpdate mu=updaterumahlist.get(position);
+//        Glide.with(holder.itemView.getContext()).load(mr.getkamar()).into(holder.tkamar);
+        holder.tjudul.setText(mu.getJudul());
+        holder.talamat.setText(mu.getAlamat());
+        holder.tkamar.setText(mu.getkamar());
+        holder.tmandi.setText(mu.getmandi());
     }
 
     @Override
@@ -54,13 +56,6 @@ public class adapterUpdate extends RecyclerView.Adapter<adapterUpdate.ViewHolder
             talamat = itemView.findViewById(R.id.alamat);
             tkamar = itemView.findViewById(R.id.kamar);
             tmandi = itemView.findViewById(R.id.bathup);
-        }
-
-        public void setData(String judul, String alamat, String kamar, String mandi) {
-            tjudul.setText(judul);
-            talamat.setText(alamat);
-            tkamar.setText(kamar);
-            tmandi.setText(mandi);
         }
     }
 }

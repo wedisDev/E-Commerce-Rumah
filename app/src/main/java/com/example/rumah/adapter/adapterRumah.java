@@ -40,12 +40,6 @@ public class adapterRumah extends RecyclerView.Adapter<adapterRumah.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         modelRumah mr=rumahlist.get(position);
 //        Glide.with(holder.itemView.getContext()).load(mr.getkamar()).into(holder.tkamar);
-
-//        judul = rumahlist.get(position).getJudul();
-//        alamat = rumahlist.get(position).getAlamat();
-//        kamar = rumahlist.get(position).getkamar();
-//        mandi = rumahlist.get(position).getmandi();
-
         holder.tjudul.setText(mr.getJudul());
         holder.talamat.setText(mr.getAlamat());
         holder.tkamar.setText(mr.getkamar());
