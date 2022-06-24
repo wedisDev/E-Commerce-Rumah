@@ -1,9 +1,9 @@
 package com.example.rumah.model;
 
-public class modelRumah {
+public class ModelUpdate {
     private String judul,alamat,kamar,mandi;
 
-    public modelRumah(String judul, String alamat, String kamar, String mandi){
+    public ModelUpdate(String judul, String alamat, String kamar, String mandi){
         this.judul=judul;
         this.alamat=alamat;
         this.kamar=kamar;
@@ -41,3 +41,4 @@ public class modelRumah {
         this.mandi = mandi;
     }
 }
+

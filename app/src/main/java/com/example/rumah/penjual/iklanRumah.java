@@ -20,7 +20,7 @@ public class iklanRumah extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent dahsboard = new Intent(iklanRumah.this, dashboardAdmin.class);
+                Intent dahsboard = new Intent(iklanRumah.this, DashboardPenjual.class);
                 iklanRumah.this.startActivity(dahsboard);
                 finish();
             }

@@ -9,18 +9,18 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rumah.R;
-import com.example.rumah.model.modelRumah;
-import com.example.rumah.model.modelUpdate;
+import com.example.rumah.model.ModelRumah;
+import com.example.rumah.model.ModelUpdate;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class adapterUpdate extends RecyclerView.Adapter<adapterUpdate.ViewHolder> {
 
-    private List<modelUpdate> updaterumahlist;
+    private List<ModelUpdate> updaterumahlist;
 //    String judul,alamat,kamar,mandi;
 
-    public adapterUpdate (ArrayList<modelUpdate> updaterumahlist){
+    public adapterUpdate (ArrayList<ModelUpdate> updaterumahlist){
         this.updaterumahlist=updaterumahlist;
     }
 
@@ -34,7 +34,7 @@ public class adapterUpdate extends RecyclerView.Adapter<adapterUpdate.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull adapterUpdate.ViewHolder holder, int position) {
-        modelUpdate mu=updaterumahlist.get(position);
+        ModelUpdate mu=updaterumahlist.get(position);
 //        Glide.with(holder.itemView.getContext()).load(mr.getkamar()).into(holder.tkamar);
         holder.tjudul.setText(mu.getJudul());
         holder.talamat.setText(mu.getAlamat());

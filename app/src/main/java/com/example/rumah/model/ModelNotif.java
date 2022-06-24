@@ -1,9 +1,9 @@
 package com.example.rumah.model;
 
-public class modelNotif {
+public class ModelNotif {
     private String notif,waktu,tanggal;
 
-    modelNotif(String notif,String waktu,String tanggal){
+    ModelNotif(String notif, String waktu, String tanggal){
         this.notif=notif;
         this.waktu=waktu;
         this.tanggal=tanggal;

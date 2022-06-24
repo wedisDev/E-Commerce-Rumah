@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.rumah.dialog.customDialog;
+import com.example.rumah.dialog.CustomDialog;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -35,7 +35,7 @@ public class kodeOtp extends AppCompatActivity {
     PhoneAuthProvider.OnVerificationStateChangedCallbacks callbacks;
     TextView send;
     public FirebaseAuth mAuth;
-    customDialog dia = new customDialog(kodeOtp.this);
+    CustomDialog dia = new CustomDialog(kodeOtp.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +58,7 @@ public class kodeOtp extends AppCompatActivity {
         daftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 daftar();
             }
         });
@@ -65,6 +66,7 @@ public class kodeOtp extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 repeat();
             }
         });
@@ -160,6 +162,7 @@ public class kodeOtp extends AppCompatActivity {
                 kode5.getText().toString().isEmpty() || kode6.getText().toString().isEmpty()){
         Toast.makeText(kodeOtp.this,"Lengkapi Kode OTP dengan benar !",Toast.LENGTH_LONG).show();
         }else {
+            backendotp = getIntent().getStringExtra("backendotp");
            if (backendotp != null){
                OTP = kode1.getText().toString()+""+
                 kode2.getText().toString()+""+
@@ -176,16 +179,16 @@ public class kodeOtp extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
+//                                dia.startDialog();
+//                                Handler handler = new Handler();
+//                                handler.postDelayed(new Runnable() {
+//                                    @Override
+//                                    public void run() {
+//                                        dia.dismissDialog();
+//                                        finish();
+//                                    }
+//                                },8000);
                                 Intent login = new Intent(kodeOtp.this, login.class);
-                                dia.startDialog();
-                                Handler handler = new Handler();
-                                handler.postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        dia.dismissDialog();
-                                        finish();
-                                    }
-                                },8000);
                                 login.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(login);
                             } else {

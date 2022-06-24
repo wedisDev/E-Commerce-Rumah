@@ -14,9 +14,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.rumah.R;
-import com.example.rumah.dialog.customDialog;
+import com.example.rumah.dialog.CustomDialog;
 
-public class editAkunAdmin extends AppCompatActivity {
+public class editAkunPenjual extends AppCompatActivity {
     EditText nama,alamat,telp,email,username,password;
     Button simpan;
     ImageButton back;
@@ -24,7 +24,7 @@ public class editAkunAdmin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_akun_admin);
+        setContentView(R.layout.activity_edit_akun_penjual);
 
         simpan=(Button) findViewById(R.id.simpan);
         back = (ImageButton) findViewById(R.id.back);
@@ -42,8 +42,8 @@ public class editAkunAdmin extends AppCompatActivity {
                 back.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent akun = new Intent(editAkunAdmin.this, akunAdmin.class);
-                        editAkunAdmin.this.startActivity(akun);
+                        Intent akun = new Intent(editAkunPenjual.this, akunPenjual.class);
+                        editAkunPenjual.this.startActivity(akun);
                         finish();
                     }
                 });
@@ -70,8 +70,8 @@ public class editAkunAdmin extends AppCompatActivity {
                     toast.show();
                 }
                 else{
-                customDialog customDialog = new customDialog(editAkunAdmin.this);
-                Intent simpan = new Intent(editAkunAdmin.this, akunAdmin.class);
+                    CustomDialog customDialog = new CustomDialog(editAkunPenjual.this);
+                Intent simpan = new Intent(editAkunPenjual.this, akunPenjual.class);
 
                 customDialog.startDialog();
                 Handler handler = new Handler();
@@ -82,7 +82,7 @@ public class editAkunAdmin extends AppCompatActivity {
                         finish();
                     }
                 },8000);
-                editAkunAdmin.this.startActivity(simpan);
+                editAkunPenjual.this.startActivity(simpan);
             }}
         });
     }

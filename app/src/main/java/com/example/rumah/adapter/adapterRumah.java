@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.rumah.R;
-import com.example.rumah.model.modelRumah;
+import com.example.rumah.model.ModelRumah;
 import androidx.activity.result.contract.ActivityResultContracts;
 
 import java.util.ArrayList;
@@ -20,10 +20,10 @@ import java.util.List;
 
 public class adapterRumah extends RecyclerView.Adapter<adapterRumah.ViewHolder> {
 
-    private ArrayList<modelRumah> rumahlist;
+    private ArrayList<ModelRumah> rumahlist;
 //    String judul,alamat,kamar,mandi;
 
-    public adapterRumah (ArrayList<modelRumah>rumahlist){
+    public adapterRumah (ArrayList<ModelRumah> rumahlist){
         this.rumahlist=rumahlist;
     }
 
@@ -38,7 +38,7 @@ public class adapterRumah extends RecyclerView.Adapter<adapterRumah.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        modelRumah mr=rumahlist.get(position);
+        ModelRumah mr=rumahlist.get(position);
 //        Glide.with(holder.itemView.getContext()).load(mr.getkamar()).into(holder.tkamar);
         holder.tjudul.setText(mr.getJudul());
         holder.talamat.setText(mr.getAlamat());

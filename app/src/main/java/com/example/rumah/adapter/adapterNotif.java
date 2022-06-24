@@ -9,17 +9,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.rumah.R;
-import com.example.rumah.model.modelNotif;
+import com.example.rumah.model.ModelNotif;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class adapterNotif extends RecyclerView.Adapter<adapterNotif.ViewHolder>{
 
-    private ArrayList<modelNotif> notiflist;
+    private ArrayList<ModelNotif> notiflist;
     String notif,tanggal,waktu;
 
-    public adapterNotif (ArrayList<modelNotif>notiflist){
+    public adapterNotif (ArrayList<ModelNotif>notiflist){
         this.notiflist=notiflist;
     }
 
@@ -32,7 +32,7 @@ public class adapterNotif extends RecyclerView.Adapter<adapterNotif.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull adapterNotif.ViewHolder holder, int position) {
-        modelNotif mn = notiflist.get(position);
+        ModelNotif mn = notiflist.get(position);
 
         holder.ttanggal.setText(mn.getTanggal());
         holder.twaktu.setText(mn.getWaktu());

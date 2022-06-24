@@ -10,17 +10,17 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.rumah.R;
-import com.example.rumah.dialog.customDialog;
+import com.example.rumah.dialog.CustomDialog;
 import com.example.rumah.login;
 
-public class akunAdmin extends AppCompatActivity {
+public class akunPenjual extends AppCompatActivity {
     ImageButton back;
     Button out,editAkun;
     Intent dahsboard,keluar,edit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_akun_admin);
+        setContentView(R.layout.activity_akun_penjual);
         back = (ImageButton) findViewById(R.id.back);
         out = (Button) findViewById(R.id.signOut);
         editAkun = (Button) findViewById(R.id.editAkun);
@@ -32,8 +32,8 @@ public class akunAdmin extends AppCompatActivity {
                 back.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        dahsboard = new Intent(akunAdmin.this, dashboardAdmin.class);
-                        akunAdmin.this.startActivity(dahsboard);
+                        dahsboard = new Intent(akunPenjual.this, DashboardPenjual.class);
+                        akunPenjual.this.startActivity(dahsboard);
                         finish();
                     }
                 });
@@ -43,15 +43,15 @@ public class akunAdmin extends AppCompatActivity {
         out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                customDialog customDialog = new customDialog(akunAdmin.this);
-                keluar = new Intent(akunAdmin.this, login.class);
+                CustomDialog customDialog = new CustomDialog(akunPenjual.this);
+                keluar = new Intent(akunPenjual.this, login.class);
                 customDialog.startDialog();
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         customDialog.dismissDialog();
-                        akunAdmin.this.startActivity(keluar);
+                        akunPenjual.this.startActivity(keluar);
                         finish();
                     }
                 },3000);
@@ -65,8 +65,8 @@ public class akunAdmin extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        edit = new Intent(akunAdmin.this, editAkunAdmin.class);
-                        akunAdmin.this.startActivity(edit);
+                        edit = new Intent(akunPenjual.this, editAkunPenjual.class);
+                        akunPenjual.this.startActivity(edit);
                         finish();
                     }
                 });

@@ -10,13 +10,13 @@ import android.widget.Button;
 
 import com.example.rumah.R;
 
-public class dashboardAdmin extends AppCompatActivity implements View.OnClickListener {
+public class DashboardPenjual extends AppCompatActivity implements View.OnClickListener {
     Button signOut;
     CardView a,b,c,d;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard_admin);
+        setContentView(R.layout.activity_dashboard_penjual);
 
         signOut = ( Button) findViewById(R.id.signOut);
         a = findViewById(R.id.a);
@@ -29,23 +29,23 @@ public class dashboardAdmin extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.a:
-                Intent list = new Intent(dashboardAdmin.this, daftarRumah.class);
-                dashboardAdmin.this.startActivity(list);
+                Intent list = new Intent(DashboardPenjual.this, daftarRumah.class);
+                DashboardPenjual.this.startActivity(list);
                 finish();
                 break;
             case R.id.b:
-                Intent jual = new Intent(dashboardAdmin.this, iklanRumah.class);
-                dashboardAdmin.this.startActivity(jual);
+                Intent jual = new Intent(DashboardPenjual.this, iklanRumah.class);
+                DashboardPenjual.this.startActivity(jual);
                 finish();
                 break;
             case R.id.c:
-                Intent update = new Intent(dashboardAdmin.this, updateRumah.class);
-                dashboardAdmin.this.startActivity(update);
+                Intent update = new Intent(DashboardPenjual.this, updateRumah.class);
+                DashboardPenjual.this.startActivity(update);
                 finish();
                 break;
             case R.id.d:
-                Intent akun = new Intent(dashboardAdmin.this, akunAdmin.class);
-                dashboardAdmin.this.startActivity(akun);
+                Intent akun = new Intent(DashboardPenjual.this, akunPenjual.class);
+                DashboardPenjual.this.startActivity(akun);
                 finish();
                 break;
         }

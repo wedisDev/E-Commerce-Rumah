@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.rumah.R;
-import com.example.rumah.dialog.customDialog;
+import com.example.rumah.dialog.CustomDialog;
 import com.example.rumah.login;
 
 /**
@@ -73,7 +73,7 @@ public class AkunFragment extends Fragment {
         keluar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                customDialog customDialog = new customDialog(getActivity());
+                CustomDialog customDialog = new CustomDialog(getActivity());
                 Intent keluar = new Intent(getActivity(), login.class);
                 customDialog.startDialog();
                 Handler handler = new Handler();

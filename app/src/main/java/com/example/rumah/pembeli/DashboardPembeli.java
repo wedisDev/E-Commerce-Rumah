@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import com.example.rumah.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class dashboardPembeli extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class DashboardPembeli extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -15,10 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Rumah">
         <activity
-            android:name=".penjual.editAkunAdmin"
+            android:name=".penjual.editAkunPenjual"
             android:exported="false" />
         <activity
-            android:name=".penjual.akunAdmin"
+            android:name=".penjual.akunPenjual"
             android:exported="false" />
         <activity
             android:name=".penjual.daftarRumah"
@@ -27,7 +27,7 @@
             android:name=".penjual.updateRumah"
             android:exported="false" />
         <activity
-            android:name=".dialog.otpDialog"
+            android:name=".dialog.OtpDialog"
             android:exported="false"
             tools:ignore="Instantiatable" />
         <activity
@@ -37,19 +37,19 @@
             android:name=".penjual.iklanRumah"
             android:exported="false" />
         <activity
-            android:name=".pembeli.dashboardPembeli"
+            android:name=".pembeli.DashboardPembeli"
             android:exported="false" />
         <activity
             android:name=".Regist"
             android:exported="false" />
         <activity
-            android:name=".penjual.dashboardAdmin"
+            android:name=".penjual.DashboardPenjual"
             android:exported="false" />
         <activity
             android:name=".login"
             android:exported="true" />
         <activity
-            android:name=".splash"
+            android:name=".Splash"
             android:exported="true"
             android:theme="@style/Splash">
             <intent-filter>

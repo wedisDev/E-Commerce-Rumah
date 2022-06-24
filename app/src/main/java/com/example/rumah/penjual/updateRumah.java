@@ -10,10 +10,8 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.rumah.R;
-import com.example.rumah.adapter.adapterRumah;
 import com.example.rumah.adapter.adapterUpdate;
-import com.example.rumah.model.modelRumah;
-import com.example.rumah.model.modelUpdate;
+import com.example.rumah.model.ModelUpdate;
 
 import java.util.ArrayList;
 
@@ -21,7 +19,7 @@ public class updateRumah extends AppCompatActivity {
     ImageButton back;
     RecyclerView rcvupdaterumah;
     //    ArrayList dataRumah;
-    private ArrayList<modelUpdate> updateRumah = new ArrayList<>(3);
+    private ArrayList<ModelUpdate> updateRumah = new ArrayList<>(3);
     //    List<modelRumah> dataRumah;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +31,9 @@ public class updateRumah extends AppCompatActivity {
 
         rcvupdaterumah.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         updateRumah = new ArrayList<>(3);
-        updateRumah.add(new modelUpdate("Rumah A","Gubeng Grgr","2","1"));
-        updateRumah.add(new modelUpdate("Rumah B","Gubeng Timt","1","1"));
-        updateRumah.add(new modelUpdate("Rumah C","Gubeng Barat","5","2"));
+        updateRumah.add(new ModelUpdate("Rumah A","Gubeng Grgr","2","1"));
+        updateRumah.add(new ModelUpdate("Rumah B","Gubeng Timt","1","1"));
+        updateRumah.add(new ModelUpdate("Rumah C","Gubeng Barat","5","2"));
 
         adapterUpdate rumah= new adapterUpdate(updateRumah);
         rcvupdaterumah.setAdapter(rumah);
@@ -43,7 +41,7 @@ public class updateRumah extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent dahsboard = new Intent(updateRumah.this, dashboardAdmin.class);
+                Intent dahsboard = new Intent(updateRumah.this, DashboardPenjual.class);
                 updateRumah.this.startActivity(dahsboard);
                 finish();
             }

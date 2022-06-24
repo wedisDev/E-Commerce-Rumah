@@ -1,34 +1,31 @@
 package com.example.rumah.dialog;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 
 import com.example.rumah.R;
 
-public class otpDialog {
+public class CustomDialog {
     private Activity activity;
     private AlertDialog alertDialog;
 
-    public otpDialog(Activity activity){
+    public CustomDialog(Activity activity){
         this.activity = activity;
     }
 
     public void startDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
         LayoutInflater inflater = activity.getLayoutInflater();
-        builder.setView(inflater.inflate(R.layout.otp_dialog, null));
+        builder.setView(inflater.inflate(R.layout.custom_dialog, null));
         builder.setCancelable(false);
 
         alertDialog = builder.create();
-        alertDialog.show();
+//        alertDialog.show();
 
     }
 
-    void otpDismiss(){
+    public void dismissDialog(){
         alertDialog.dismiss();
     }
 }
