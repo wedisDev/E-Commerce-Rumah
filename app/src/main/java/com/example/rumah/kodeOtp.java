@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -188,7 +187,7 @@ public class kodeOtp extends AppCompatActivity {
 //                                        finish();
 //                                    }
 //                                },8000);
-                                Intent login = new Intent(kodeOtp.this, login.class);
+                                Intent login = new Intent(kodeOtp.this, Login.class);
                                 login.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(login);
                             } else {

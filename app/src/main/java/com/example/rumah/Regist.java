@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -23,7 +22,6 @@ import com.example.rumah.dialog.CustomDialog;
 import com.example.rumah.dialog.OtpDialog;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -114,7 +112,7 @@ public class Regist extends AppCompatActivity {
                 back.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent login = new Intent(Regist.this, login.class);
+                        Intent login = new Intent(Regist.this, Login.class);
                         Regist.this.startActivity(login);
                         finish();
                     }
@@ -209,7 +207,7 @@ public class Regist extends AppCompatActivity {
 
                 df.set(userInfo);
 
-                startActivity(new Intent(getApplicationContext(), login.class));
+                startActivity(new Intent(getApplicationContext(), Login.class));
                 finish();
             }
         }).addOnFailureListener(new OnFailureListener() {

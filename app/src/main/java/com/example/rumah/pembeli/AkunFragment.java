@@ -13,7 +13,7 @@ import android.widget.Button;
 
 import com.example.rumah.R;
 import com.example.rumah.dialog.CustomDialog;
-import com.example.rumah.login;
+import com.example.rumah.Login;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -74,7 +74,7 @@ public class AkunFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 CustomDialog customDialog = new CustomDialog(getActivity());
-                Intent keluar = new Intent(getActivity(), login.class);
+                Intent keluar = new Intent(getActivity(), Login.class);
                 customDialog.startDialog();
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {

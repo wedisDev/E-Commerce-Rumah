@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 
 import com.example.rumah.R;
 import com.example.rumah.dialog.CustomDialog;
-import com.example.rumah.login;
+import com.example.rumah.Login;
 
 public class akunPenjual extends AppCompatActivity {
     ImageButton back;
@@ -44,7 +44,7 @@ public class akunPenjual extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 CustomDialog customDialog = new CustomDialog(akunPenjual.this);
-                keluar = new Intent(akunPenjual.this, login.class);
+                keluar = new Intent(akunPenjual.this, Login.class);
                 customDialog.startDialog();
                 Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {

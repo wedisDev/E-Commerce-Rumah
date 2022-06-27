@@ -4,11 +4,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class Session {
-    public static final String SESSION = "RUGIT";
-//    public static final String KEY_ID_USER = "id_user";
-    public static final String key_username = "username";
-    public static final String key_pass = "password";
-//    public static final String KEY_LEVEL_USER = "level";
+    public static final String SESSION = "rugit";
+    public static final String KEY_ID_PENGGUNA = "id_pengguna";
+    public static final String KEY_NAMA_PENGGUNA = "nama_pengguna";
+    public static final String KEY_TELP_PENGGUNA = "telp_pengguna";
+    public static final String KEY_LEVEL_PENGGUNA = "level";
     public static final String IS_LOGGIN = "is_login";
 
     public static SharedPreferences sp;
@@ -39,24 +39,23 @@ public class Session {
     }
 
     // Getter
-    public static String getKey_username() {
-        return sp.getString(key_username, "");
+    public static String getKeyIdUser() {
+        return sp.getString(KEY_ID_PENGGUNA, "");
     }
 
-    public static String getKey_pass() {
-        return sp.getString(key_pass, "");
+    public static String getKeyNamaUser() {
+        return sp.getString(KEY_NAMA_PENGGUNA, "");
     }
 
-//    public static String getKeyTelpUser() {
-//        return sp.getString(KEY_TELP_USER, "");
-//    }
-//
-//    public static String getKeyLevelUser() {
-//        return sp.getString(KEY_LEVEL_USER, "");
-//    }
+    public static String getKeyTelpUser() {
+        return sp.getString(KEY_TELP_PENGGUNA, "");
+    }
+
+    public static String getKeyLevelUser() {
+        return sp.getString(KEY_LEVEL_PENGGUNA, "");
+    }
 
     public static Boolean getIsLoggin() {
         return sp.getBoolean(IS_LOGGIN, false);
     }
 }
-
