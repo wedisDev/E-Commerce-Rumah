@@ -34,7 +34,7 @@ import java.util.Map;
 public class Login extends AppCompatActivity {
     String status;
     EditText username, password;
-    public String ip = "192.168.100.124";
+    public String ip = "192.168.140.152";
     private StringRequest request;
     private RequestQueue queue;
     Button signIn;
@@ -81,23 +81,23 @@ public class Login extends AppCompatActivity {
             } else {
 
 
-//                if (usernameKey.equals("joko")&&passwordKey.equals("123")){
-//                    Intent jual = new Intent(Login.this, DashboardPenjual.class);
-//                    dia.startDialog();
-//                    signIn.setVisibility(View.INVISIBLE);
-//                    Login.this.startActivity(jual);
-//                    finish();
-//
-//                }else if (usernameKey.equals("juki")&&passwordKey.equals("123")){
-//                    Intent beli = new Intent(Login.this, DashboardPembeli.class);
-//                    Login.this.startActivity(beli);
-//                    dia.startDialog();
-//                    signIn.setVisibility(View.INVISIBLE);
-//                    finish();
-//
-//                }
+                if (usernameKey.equals("joko")&&passwordKey.equals("123")){
+                    Intent jual = new Intent(Login.this, DashboardPenjual.class);
+                    dia.startDialog();
+                    signIn.setVisibility(View.INVISIBLE);
+                    Login.this.startActivity(jual);
+                    finish();
 
-                cekLogin();
+                }else if (usernameKey.equals("juki")&&passwordKey.equals("123")){
+                    Intent beli = new Intent(Login.this, DashboardPembeli.class);
+                    Login.this.startActivity(beli);
+                    dia.startDialog();
+                    signIn.setVisibility(View.INVISIBLE);
+                    finish();
+
+                }
+
+//                cekLogin();
 
 
 

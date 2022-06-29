@@ -41,7 +41,9 @@
             android:exported="false" />
         <activity
             android:name=".Regist"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".Login"
+            android:label="Daftar Akun"/>
         <activity
             android:name=".penjual.DashboardPenjual"
             android:exported="false" />
@@ -58,6 +60,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

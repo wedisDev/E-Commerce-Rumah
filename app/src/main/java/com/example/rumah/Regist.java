@@ -41,7 +41,7 @@ import java.util.concurrent.TimeUnit;
 public class Regist extends AppCompatActivity {
 
     private String tname,taddress,tphone,temail,tusername,tpass,trek;
-    public String ip ="192.168.100.124";
+    public String ip ="192.168.140.152";
     private StringRequest request;
     private RequestQueue queue;
     Button signUp;
@@ -103,8 +103,7 @@ public class Regist extends AppCompatActivity {
 //                      fAccount();
 //                    daftar();
                     sendOtp();
-//                    Intent test=new Intent(getApplicationContext(),login.class);
-//                   startActivity(test);
+
                 }
             }
         });

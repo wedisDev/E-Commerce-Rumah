@@ -89,19 +89,6 @@
                 android:inputType="none"
                 android:textColor="@color/white"
                 android:textSize="7pt"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/kota"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Pilih KOta / Kabupaten"
-            app:startIconTint="@color/white"
-            app:boxStrokeColor="@color/white"
-            app:hintTextColor="@color/white"
-            android:textColorHint="@color/white"
-            android:layout_marginBottom="6pt">
 
             <AutoCompleteTextView
                 android:id="@+id/KotaData"
@@ -110,7 +97,21 @@
                 android:fontFamily="@font/poppins"
                 android:inputType="none"
                 android:textColor="@color/white"
-                android:textSize="7pt"/>
+                android:textSize="7pt" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/kota"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pilih Kota"
+            app:startIconTint="@color/white"
+            app:boxStrokeColor="@color/white"
+            app:hintTextColor="@color/white"
+            android:textColorHint="@color/white"
+            android:layout_marginBottom="6pt">
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -148,7 +149,7 @@
             android:layout_marginBottom="6pt">
 
             <AutoCompleteTextView
-                android:id="@+id/kelurahanData"
+                android:id="@+id/KelurahanData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
