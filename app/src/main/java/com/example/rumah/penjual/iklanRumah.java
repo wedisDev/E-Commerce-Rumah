@@ -30,11 +30,11 @@ import java.util.ArrayList;
 
 public class iklanRumah extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private EditText judul, alamat, deskripsi,harga;
-    private Spinner provinsi,kota;
-    ArrayList<String> listProvinsi = new ArrayList<>();
-    ArrayList<String> listKota = new ArrayList<>();
-    ArrayAdapter<String> negaraAdapter;
-    ArrayAdapter<String> kotaAdapter;
+    private Spinner kecamatan,kelurahan;
+    ArrayList<String> listKecamatan = new ArrayList<>();
+    ArrayList<String> listKelurahan = new ArrayList<>();
+    ArrayAdapter<String> kecamatanAdapter;
+    ArrayAdapter<String> kelurahanAdapter;
     private ImageView gambar;
     private Bitmap bitmap;
     ImageButton back;
@@ -48,8 +48,8 @@ public class iklanRumah extends AppCompatActivity implements AdapterView.OnItemS
         alamat = (EditText) findViewById(R.id.detail);
         deskripsi = (EditText) findViewById(R.id.deskripsi);
         harga = (EditText) findViewById(R.id.harga);
-        provinsi = (Spinner) findViewById(R.id.spinnerProvinsi);
-        kota = (Spinner) findViewById(R.id.spinnerKota);
+        kecamatan = (Spinner) findViewById(R.id.spinnerKecamatan);
+        kelurahan = (Spinner) findViewById(R.id.spinnerKelurahan);
         back = (ImageButton) findViewById(R.id.back);
         requestQueue = Volley.newRequestQueue(this);
 
@@ -62,21 +62,21 @@ public class iklanRumah extends AppCompatActivity implements AdapterView.OnItemS
             }
         });
 
-        String url = "http://192.168.1.17/android/populate_country.php";
+        String url = "http://192.168.1.17/rumah/provinsi.php";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
                 url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    JSONArray jsonArray = response.getJSONArray("PROVINSI");
+                    JSONArray jsonArray = response.getJSONArray("KECAMATAN");
                     for(int i=0; i<jsonArray.length();i++){
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        String countryName = jsonObject.optString("NAMA_PROVINSI");
-                        listProvinsi.add(countryName);
-                        negaraAdapter = new ArrayAdapter<>(iklanRumah.this,
-                                android.R.layout.simple_spinner_item, listProvinsi);
-                        negaraAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        provinsi.setAdapter(negaraAdapter);
+                        String countryName = jsonObject.optString("NAMA_KECAMATAN");
+                        listKecamatan.add(countryName);
+                        kecamatanAdapter = new ArrayAdapter<>(iklanRumah.this,
+                                android.R.layout.simple_spinner_item, listKecamatan);
+                        kecamatanAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        kecamatan.setAdapter(kecamatanAdapter);
 
                     }
                 } catch (JSONException e) {
@@ -90,30 +90,30 @@ public class iklanRumah extends AppCompatActivity implements AdapterView.OnItemS
             }
         });
         requestQueue.add(jsonObjectRequest);
-        provinsi.setOnItemSelectedListener(this);
+        kecamatan.setOnItemSelectedListener(this);
     }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        if(adapterView.getId() == R.id.spinnerProvinsi){
-            listKota.clear();
+        if(adapterView.getId() == R.id.spinnerKecamatan){
+            listKelurahan.clear();
             String selectedCountry = adapterView.getSelectedItem().toString();
-            String url = "http://192.168.1.17/android/populate_city.php?NAMA_PROVINSI="+selectedCountry;
+            String url = "http://192.168.1.17/rumah/kota.php?NAMA_KECAMATAN="+selectedCountry;
             requestQueue = Volley.newRequestQueue(this);
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
                     url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
-                        JSONArray jsonArray = response.getJSONArray("KOTA");
+                        JSONArray jsonArray = response.getJSONArray("KELURAHAN");
                         for(int i=0; i<jsonArray.length();i++){
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
-                            String cityName = jsonObject.optString("NAMA_KOTA");
-                            listKota.add(cityName);
-                            kotaAdapter = new ArrayAdapter<>(iklanRumah.this,
-                                    android.R.layout.simple_spinner_item, listKota);
-                            kotaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                            kota.setAdapter(kotaAdapter);
+                            String cityName = jsonObject.optString("NAMA_KELURAHAN");
+                            listKelurahan.add(cityName);
+                            kelurahanAdapter = new ArrayAdapter<>(iklanRumah.this,
+                                    android.R.layout.simple_spinner_item, listKelurahan);
+                            kelurahanAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                            kelurahan.setAdapter(kelurahanAdapter);
 
                         }
                     } catch (JSONException e) {
@@ -127,7 +127,7 @@ public class iklanRumah extends AppCompatActivity implements AdapterView.OnItemS
                 }
             });
             requestQueue.add(jsonObjectRequest);
-            kota.setOnItemSelectedListener(this);
+            kelurahan.setOnItemSelectedListener(this);
         }
     }
 
