@@ -1,162 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
-    android:orientation="vertical"
     tools:context=".penjual.iklanRumah">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-<Toolbar
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/brown"
-    android:id="@+id/toolbar">
-    <RelativeLayout
+    <Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
-        <LinearLayout
+        android:background="@color/brown"
+        android:id="@+id/toolbar">
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <ImageButton
-                android:layout_width="wrap_content"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/back"
-                android:backgroundTint="@color/brown"
-                android:id="@+id/back"/>
-        </LinearLayout>
+                android:orientation="horizontal"
+                >
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/back"
+                    android:backgroundTint="@color/brown"
+                    android:id="@+id/back"/>
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/text1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:fontFamily="@font/poppins"
-            android:gravity="center_horizontal"
-            android:text="I K L A N"
-            android:textColor="@color/white"
-            android:textSize="25dp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/poppins"
+                android:gravity="center_horizontal"
+                android:text="I K L A N"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
-    </RelativeLayout>
-</Toolbar>
+        </RelativeLayout>
+    </Toolbar>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
         android:orientation="vertical"
         android:padding="15dp">
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="7pt"
             android:backgroundTint="@color/white">
-
             <EditText
-                android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Judul Rumah "
+                android:id="@+id/name"
+                android:hint="Judul Rumah"
                 android:textColor="@color/white"
                 android:textSize="7pt"
                 android:fontFamily="@font/poppins"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/provinsi"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerProvinsi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Pilih Provinsi"
-            app:startIconTint="@color/white"
-            app:boxStrokeColor="@color/white"
-            app:hintTextColor="@color/white"
-            android:textColorHint="@color/white"
-            android:layout_marginBottom="6pt">
-
-            <AutoCompleteTextView
-                android:id="@+id/provinsiData"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:inputType="none"
-                android:textColor="@color/white"
-                android:textSize="7pt"/>
-
-            <AutoCompleteTextView
-                android:id="@+id/KotaData"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:inputType="none"
-                android:textColor="@color/white"
-                android:textSize="7pt" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/kota"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/white"
+            android:textSize="7pt"
+            android:fontFamily="@font/poppins"/>
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinnerKota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Pilih Kota"
-            app:startIconTint="@color/white"
-            app:boxStrokeColor="@color/white"
-            app:hintTextColor="@color/white"
-            android:textColorHint="@color/white"
-            android:layout_marginBottom="6pt">
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/kecamatan"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Pilih Kecamatan"
-            app:startIconTint="@color/white"
-            app:boxStrokeColor="@color/white"
-            app:hintTextColor="@color/white"
-            android:textColorHint="@color/white"
-            android:layout_marginBottom="6pt">
-
-            <AutoCompleteTextView
-                android:id="@+id/KecamatanData"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:inputType="none"
-                android:textColor="@color/white"
-                android:textSize="7pt"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/kelurahan"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Pilih Kelurahan"
-            app:startIconTint="@color/white"
-            app:boxStrokeColor="@color/white"
-            app:hintTextColor="@color/white"
-            android:textColorHint="@color/white"
-            android:layout_marginBottom="6pt">
-
-            <AutoCompleteTextView
-                android:id="@+id/KelurahanData"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins"
-                android:inputType="none"
-                android:textColor="@color/white"
-                android:textSize="7pt"/>
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/white"
+            android:textSize="7pt"
+            android:fontFamily="@font/poppins"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -179,6 +102,21 @@
             android:backgroundTint="@color/white">
 
             <EditText
+                android:id="@+id/deskripsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Deskripsi Rumah"
+                android:textColor="@color/white"
+                android:textSize="7pt"
+                android:fontFamily="@font/poppins"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white">
+
+            <EditText
                 android:id="@+id/harga"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -187,6 +125,24 @@
                 android:textSize="7pt"
                 android:fontFamily="@font/poppins"/>
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload Gambar"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:textSize="7pt"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins"/>
+        <ImageView
+            android:id="@+id/upload"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/up"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/editbox"
+            android:padding="10dp"/>
 
         <Button
             android:id="@+id/iklan"
@@ -201,4 +157,3 @@
             android:fontFamily="@font/poppins"/>
     </LinearLayout>
 </RelativeLayout>
-</ScrollView>
