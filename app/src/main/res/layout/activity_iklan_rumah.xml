@@ -75,13 +75,14 @@
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/spinnerKecamatan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_marginBottom="20dp"
             android:textColor="@color/white"
             android:textSize="7pt"
             android:fontFamily="@font/poppins"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="5dp"
+            android:background="@drawable/editspin"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -91,16 +92,16 @@
             android:textSize="7pt"
             android:textStyle="bold"
             android:fontFamily="@font/poppins"/>
-        <androidx.appcompat.widget.AppCompatSpinner
+        <Spinner
             android:id="@+id/spinnerKelurahan"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_height="35dp"
             android:textColor="@color/white"
             android:textSize="7pt"
             android:fontFamily="@font/poppins"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="5dp"
+            android:background="@drawable/editspin"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
