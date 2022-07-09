@@ -36,38 +36,26 @@
             android:textStyle="bold"
             android:fontFamily="@font/poppins" />
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/usernameLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10pt">
+            android:hint="Nama Pengguna"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins"
+            />
 
-            <EditText
-                android:id="@+id/username"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nama Pengguna"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:fontFamily="@font/poppins"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/passwordLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8pt"
-            app:passwordToggleEnabled="true">
-
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Kata Sandi"
-                android:inputType="textPassword"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:fontFamily="@font/poppins" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:hint="Kata Sandi"
+            android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -90,13 +78,13 @@
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:layout_marginLeft="3pt"
-                android:id="@+id/signUp"
+                android:id="@+id/signUpLogin"
                 android:fontFamily="@font/poppins"
                 />
 
         </LinearLayout>
         <Button
-            android:id="@+id/signIn"
+            android:id="@+id/signInLogin"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
