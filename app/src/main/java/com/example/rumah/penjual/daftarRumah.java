@@ -12,16 +12,22 @@ import android.widget.ImageButton;
 
 import com.example.rumah.R;
 import com.example.rumah.adapter.adapterRumah;
-import com.example.rumah.model.ModelRumah;
+import com.example.rumah.data.local.SharedPref;
+import com.example.rumah.data.network.ApiClient;
+import com.example.rumah.data.network.EndPoint;
+import com.example.rumah.data.network.response.get_rumah.DataItem;
+import com.example.rumah.data.network.response.get_rumah.ResponseGetRumahByPengguna;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
 
 public class daftarRumah extends AppCompatActivity {
     ImageButton back;
     RecyclerView rcvRumah;
-//    ArrayList dataRumah;
-    private ArrayList<ModelRumah> dataRumah = new ArrayList<>(3);
-//    List<modelRumah> dataRumah;
+    List<DataItem> dataItem;
+    private ArrayList<DataItem> dataRumah = new ArrayList<DataItem>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,15 +37,7 @@ public class daftarRumah extends AppCompatActivity {
         rcvRumah = (RecyclerView) findViewById(R.id.rcvRumah);
 
         rcvRumah.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        dataRumah = new ArrayList<>(3);
-        dataRumah.add(new ModelRumah("Rumah Ceunah","Gubeng Barat","2","1"));
-        dataRumah.add(new ModelRumah("Rumah Membahana","Gubeng Barat","2","1"));
-        dataRumah.add(new ModelRumah("Rumah Ceunah","Gubeng Barat","2","1"));
-
-        Log.d("Rumah", "onCreate: "+dataRumah.toString());
-        adapterRumah rumah= new adapterRumah(dataRumah);
-        rcvRumah.setAdapter(rumah);
-
+        getPenggunaId();
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +47,30 @@ public class daftarRumah extends AppCompatActivity {
                 finish();
             }
         });
+    }
 
-//        return ;
+    private void getPenggunaId() {
+        String idPengguna = SharedPref.getIdPengguna(getApplicationContext());
+        if(!idPengguna.isEmpty()){
+            EndPoint endPoint = ApiClient.getClient().create(EndPoint.class);
+            Call<ResponseGetRumahByPengguna> call = endPoint.getRumahByPenggunaId(idPengguna);
+
+            call.enqueue(new retrofit2.Callback<ResponseGetRumahByPengguna>() {
+                @Override
+                public void onResponse(Call<ResponseGetRumahByPengguna> call, retrofit2.Response<ResponseGetRumahByPengguna> response) {
+                    if(response.isSuccessful()){
+                        dataRumah = response.body().getData();
+                        adapterRumah rumah= new adapterRumah(dataRumah);
+                        rcvRumah.setAdapter(rumah);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseGetRumahByPengguna> call, Throwable t) {
+                    Log.d("Rumah", "onFailure: "+t.getMessage());
+                }
+            });
+        }
+
     }
 }
