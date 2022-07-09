@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "311579068277",
+    "project_id": "phoneotp-auth-d4f44",
+    "storage_bucket": "phoneotp-auth-d4f44.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:311579068277:android:37ea23dffa0879d8e9353c",
+        "android_client_info": {
+          "package_name": "com.example.rumah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "311579068277-a3ucn3d903svup2e3e3gf3es8cdfg64s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rumah",
+            "certificate_hash": "4f8e0a3cc31b242b0d43802170650a874d4e5981"
+          }
+        },
+        {
+          "client_id": "311579068277-4rivedpkk52lks5tgskmr4iipmb0pke1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDYvFUnAHZ_1ty3lL6LBhOd1vQKBTfZ5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "311579068277-4rivedpkk52lks5tgskmr4iipmb0pke1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
