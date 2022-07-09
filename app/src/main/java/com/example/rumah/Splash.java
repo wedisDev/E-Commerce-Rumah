@@ -11,15 +11,14 @@ public class Splash extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent login = new Intent(Splash.this, Login.class);
-                startActivity(login);
+                Intent intent = new Intent(Splash.this, Login.class);
+                startActivity(intent);
                 finish();
             }
-        },3000);
+        }, 2000);
 
     }
 }
