@@ -5,18 +5,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.example.rumah.R;
+import com.example.rumah.data.local.SharedPref;
 import com.example.rumah.dialog.CustomDialog;
 import com.example.rumah.Login;
 
 public class akunPenjual extends AppCompatActivity {
     ImageButton back;
     Button out,editAkun;
-    Intent dahsboard,keluar,edit;
+    Intent dahsboard,edit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,18 +45,10 @@ public class akunPenjual extends AppCompatActivity {
         out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CustomDialog customDialog = new CustomDialog(akunPenjual.this);
-                keluar = new Intent(akunPenjual.this, Login.class);
-                customDialog.startDialog();
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        customDialog.dismissDialog();
-                        akunPenjual.this.startActivity(keluar);
-                        finish();
-                    }
-                },3000);
+                SharedPref.logout(akunPenjual.this);
+                finish();
+                Intent intent = new Intent(akunPenjual.this, Login.class);
+                akunPenjual.this.startActivity(intent);
             }
         });
 
