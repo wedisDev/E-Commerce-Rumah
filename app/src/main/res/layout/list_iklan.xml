@@ -6,8 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:backgroundTint="@color/brown"
     app:cardElevation="6dp"
-    app:cardCornerRadius="10dp"
-    android:layout_margin="5dp">
+    android:layout_margin="4dp"
+    app:cardCornerRadius="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         android:padding="10dp">
 
         <ImageView
-            android:id="@+id/pic"
+            android:id="@+id/iv_update_pic"
             android:layout_width="20pt"
             android:layout_height="50pt"
             android:layout_weight="0.5"
@@ -30,7 +30,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/judul"
+                android:id="@+id/tv_update_judul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Judul Rumah"
@@ -41,7 +41,17 @@
                 android:textStyle="bold"/>
 
             <TextView
-            android:id="@+id/alamat"
+            android:id="@+id/tv_update_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alamat Rumah"
+            android:textColor="@color/white"
+            android:textSize="5pt"
+            android:fontFamily="@font/poppins"
+            android:layout_marginStart="10dp" />
+
+            <TextView
+            android:id="@+id/tv_update_harga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Alamat Rumah"
@@ -51,72 +61,50 @@
             android:layout_marginStart="10dp" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="4pt">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/kamar"/>
-            <TextView
-                android:id="@+id/kamar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3"
-                android:textColor="@color/white"
-                android:textSize="5pt"
-                android:fontFamily="@font/poppins"
-                android:layout_marginLeft="10dp"/>
-                <TextView
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginHorizontal="4dp"
+                android:id="@+id/l_konfirmasi"
+                android:layout_marginTop="8dp"
+                android:layout_height="wrap_content">
+                <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kamar Tidur"
-                    android:textColor="@color/white"
-                    android:textSize="5pt"
+                    android:layout_height="30dp"
+                    android:layout_gravity="end"
+                    android:background="@drawable/sell"
                     android:fontFamily="@font/poppins"
-                    android:layout_marginLeft="5dp"/>
+                    android:paddingTop="5dp"
+                    android:text="btn1"
+                    android:id="@+id/btn_update1"
+                    android:textColor="@color/white"
+                    android:textSize="6pt"
+                    />
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="60dp"
+                    android:visibility="gone"
+                    android:id="@+id/iv_terjual"
+                    android:src="@drawable/terjual2"
+                    />
+                <Button
+                    android:id="@+id/btn_update2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_gravity="end"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/sell"
+                    android:fontFamily="@font/poppins"
+                    android:paddingTop="5dp"
+                    android:text="btn2"
+                    android:textColor="@color/white"
+                    android:textSize="6pt"
+                    />
+
+
         </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="4pt">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/bathup"/>
-                <TextView
-                    android:id="@+id/bathup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2"
-                    android:textColor="@color/white"
-                    android:textSize="5pt"
-                    android:fontFamily="@font/poppins"
-                    android:layout_marginLeft="10dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Kamar Mandi"
-                    android:textColor="@color/white"
-                    android:textSize="5pt"
-                    android:fontFamily="@font/poppins"
-                    android:layout_marginLeft="5dp"/>
-            </LinearLayout>
-            <Button
-                android:id="@+id/sell"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_gravity="end"
-                android:background="@drawable/sell"
-                android:fontFamily="@font/poppins"
-                android:paddingTop="5dp"
-                android:text="Terjual"
-                android:textColor="@color/white"
-                android:textSize="6pt"
-                />
+
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/gray"
     android:orientation="vertical"
-    tools:context=".penjual.updateRumah">
+    tools:context=".admin.AdminDashboardActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -19,32 +19,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                    <ImageButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/back"
-                        android:backgroundTint="@color/brown"
-                        android:id="@+id/back"/>
-                </LinearLayout>
 
                 <TextView
                     android:id="@+id/text1"
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:fontFamily="@font/poppins"
                     android:gravity="center_horizontal"
-                    android:text="U P D A T E     I K L A N"
+                    android:text="D A S H B O A R D"
                     android:textColor="@color/white"
                     android:textSize="25dp"
                     android:textStyle="bold" />
-
+                <ImageButton
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/profile"
+                    android:layout_toRightOf="@+id/text1"
+                    android:backgroundTint="@color/brown"
+                    android:id="@+id/imv_profile"/>
             </RelativeLayout>
+
         </Toolbar>
 
         <LinearLayout
@@ -54,12 +50,11 @@
             android:orientation="vertical"
             android:padding="4dp">
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvupdaterumah"
+                android:id="@+id/rv_dashboard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                tools:listitem="@layout/list_iklan"/>
+                android:layout_marginEnd="10dp"/>
 
         </LinearLayout>
     </RelativeLayout>

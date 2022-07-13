@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,48 +8,32 @@
     android:background="@color/gray">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:id="@+id/toolbar">
+        android:layout_marginTop="15dp">
+
         <EditText
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/searchbox"
-            android:hint="Pencarian"
-            android:textStyle="bold"
-            android:textColor="@color/brown"
-            android:fontFamily="@font/poppins"
-            android:drawableLeft="@drawable/cari"
-            android:padding="10dp"
             android:layout_marginRight="5dp"
+            android:background="@drawable/searchbox"
+            android:drawableLeft="@drawable/cari"
+            android:fontFamily="@font/poppins"
             android:gravity="center_vertical"
-            />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/filter"
-            android:gravity="center"
-            android:layout_marginTop="15dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/filter" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Filter"
-                android:textSize="14dp"
-                android:textColor="@color/brown"
-                android:fontFamily="@font/poppins"/>
-        </LinearLayout>
+            android:hint="Cari ..."
+            android:id="@+id/edt_cari_rumah"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:textColor="@color/brown"
+            android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
     <!-- TODO: Update blank fragment layout -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingBottom="65dp"
         android:layout_below="@id/toolbar">
         <ScrollView
             android:layout_width="match_parent"
@@ -59,12 +41,13 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp">
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvhome"
+                android:id="@+id/rv_home_pembeli"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="12dp"
                 tools:listitem="@layout/list_rumah"/>
         </ScrollView>
     </FrameLayout>
+
 
 </RelativeLayout>

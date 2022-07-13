@@ -7,7 +7,7 @@
     android:backgroundTint="@color/brown"
     app:cardElevation="6dp"
     app:cardCornerRadius="5dp"
-    android:layout_margin="5dp">
+    android:layout_margin="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,21 +15,24 @@
         android:padding="10dp"
         android:orientation="horizontal">
         <ImageView
-            android:layout_width="150dp"
+            android:layout_width="match_parent"
+            android:layout_weight="2"
+            android:scaleType="centerCrop"
             android:layout_height="150dp"
-            android:id="@+id/gambar"
+            android:id="@+id/iv_payment_gambar"
             android:src="@drawable/logo"
             />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginLeft="10dp">
+            android:paddingLeft="10dp"
+            android:layout_weight="1">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Judul Rumah"
-                android:id="@+id/judul"
+                android:id="@+id/tv_payment_judul"
                 android:textSize="16dp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -38,41 +41,32 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nama Pemilik"
-                android:id="@+id/owner"
+                android:id="@+id/tv_payment_owner"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppins"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Alamat Rumah"
-                android:id="@+id/alamat"
+                android:id="@+id/tv_payment_alamat"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppins"/>
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Total Bayar : "
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/poppins"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Rp. 1.000.000"
-                    android:id="@+id/total"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/poppins"/>
-            </LinearLayout>
+                android:text="Status"
+                android:id="@+id/tv_payment_status"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins"/>
+
             <Button
-                android:layout_width="170dp"
+                android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:background="@drawable/bg_button"
-                android:text="Upload Bukti Bayar"
+                android:text="Transfer"
                 android:fontFamily="@font/poppins"
                 android:layout_gravity="end"
+                android:id="@+id/btn_payment"
                 android:layout_marginTop="8dp"
                 android:elevation="10dp"/>
         </LinearLayout>

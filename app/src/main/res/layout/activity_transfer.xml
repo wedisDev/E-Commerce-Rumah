@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical"
+    tools:context=".pembeli.TransferActivity">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/brown"
+        android:id="@+id/toolbar">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/back"
+                    android:backgroundTint="@color/brown"
+                    android:id="@+id/ib_payment_back"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/poppins"
+                android:gravity="center_horizontal"
+                android:text="PEMBAYARAN"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </Toolbar>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text=""
+        android:layout_marginTop="10dp"
+        android:textColor="@color/brown2"
+        android:textSize="7pt"
+        android:id="@+id/tv_payment_title"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins"
+        android:layout_height="wrap_content"/>
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:src="@drawable/up"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/ib_payment_upload"
+        android:background="@drawable/editbox"
+        android:padding="10dp"
+        android:layout_height="200dp"/>
+
+
+    <Button
+        android:id="@+id/btn_payment_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button_rounded"
+        android:text="Submit"
+        android:layout_marginHorizontal="12dp"
+        android:textColor="@color/white"
+        android:textSize="7pt"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins"/>
+</LinearLayout>

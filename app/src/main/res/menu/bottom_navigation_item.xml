@@ -9,10 +9,7 @@
         android:id="@+id/payment"
         android:icon="@drawable/bayar"
         android:title="Pembayaran" />
-    <item
-        android:id="@+id/notif"
-        android:icon="@drawable/notif"
-        android:title="Notifikasi" />
+
     <item
         android:id="@+id/akun"
         android:icon="@drawable/ic_baseline_account_circle_24"

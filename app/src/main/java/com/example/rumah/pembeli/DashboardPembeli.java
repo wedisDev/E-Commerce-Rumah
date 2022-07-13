@@ -29,9 +29,6 @@ public class DashboardPembeli extends AppCompatActivity implements BottomNavigat
             case R.id.dashboard:
                 fragment = new DashboardFragment();
                 break;
-            case R.id.notif:
-                fragment = new NotifFragment();
-                break;
             case R.id.akun:
                 fragment = new AkunFragment();
                 break;

@@ -10,10 +10,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.rumah.R;
+import com.example.rumah.data.local.SharedPref;
+import com.example.rumah.data.network.ApiClient;
+import com.example.rumah.data.network.EndPoint;
+import com.example.rumah.data.network.response.get_user.Data;
+import com.example.rumah.data.network.response.get_user.ResponseGetUser;
 import com.example.rumah.dialog.CustomDialog;
 import com.example.rumah.Login;
+import com.example.rumah.penjual.editAkunPenjual;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,7 +32,8 @@ import com.example.rumah.Login;
  * create an instance of this fragment.
  */
 public class AkunFragment extends Fragment {
-    Button keluar;
+    Button keluar, editAkun;
+    TextView tv_alamat_acc, tv_telp_acc, tv_email_acc, tv_name_acc;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -67,25 +79,65 @@ public class AkunFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v =inflater.inflate(R.layout.fragment_akun,container,false);
-        // Inflate the layout for this fragment
 
         keluar=v.findViewById(R.id.keluar);
+        editAkun=v.findViewById(R.id.editAkun);
+        tv_alamat_acc = (TextView) v.findViewById(R.id.tv_alamat_acc);
+        tv_telp_acc = (TextView) v.findViewById(R.id.tv_telp_acc);
+        tv_email_acc = (TextView) v.findViewById(R.id.tv_email_acc);
+        tv_name_acc = (TextView) v.findViewById(R.id.tv_name_acc);
+
+        getUser();
+
+        editAkun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), editAkunPenjual.class);
+                startActivity(i);
+            }
+        });
+
         keluar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CustomDialog customDialog = new CustomDialog(getActivity());
-                Intent keluar = new Intent(getActivity(), Login.class);
-                customDialog.startDialog();
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
+                new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        customDialog.dismissDialog();
-                        getActivity().startActivity(keluar);
+                        SharedPref.logout(getActivity());
+                        Intent intent = new Intent(getActivity(), Login.class);
+                        startActivity(intent);
+                        getActivity().finish();
                     }
-                },2000);
+                }, 1000);
             }
         });
         return v;
+    }
+
+    private void getUser() {
+        String idPengguna = SharedPref.getIdPengguna(getActivity());
+        if(!idPengguna.isEmpty()){
+            EndPoint endPoint = ApiClient.getClient().create(EndPoint.class);
+            Call<ResponseGetUser> call = endPoint.getUser(idPengguna);
+
+            call.enqueue(new Callback<ResponseGetUser>() {
+                @Override
+                public void onResponse(Call<ResponseGetUser> call, Response<ResponseGetUser> response) {
+                    Data acc = null;
+                    if (response.body() != null) {
+                        acc = response.body().getData();
+                        tv_alamat_acc.setText(acc.getAlamat());
+                        tv_name_acc.setText(acc.getNama());
+                        tv_telp_acc.setText(acc.getTelp());
+                        tv_email_acc.setText(acc.getEmail());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseGetUser> call, Throwable t) {
+
+                }
+            });
+        }
     }
 }

@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.rumah.admin.AdminDashboardActivity;
 import com.example.rumah.data.local.SharedPref;
 import com.example.rumah.data.network.ApiClient;
 import com.example.rumah.data.network.EndPoint;
@@ -53,21 +54,34 @@ public class Login extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<ResponseLogin> call, retrofit2.Response<ResponseLogin> response) {
                             if (response.body().getStatus().equals("Berhasil")) {
-                                if (response.body().getData().getRole().equals("2")) {
-                                    SharedPref.setLoggedIn(getApplicationContext(),
-                                            true, response.body().getData().getIdPengguna(),
-                                            response.body().getData().getRole());
-                                    Intent penjual = new Intent(Login.this, DashboardPenjual.class);
-                                    startActivity(penjual);
-                                } else if (response.body().getData().getRole().equals("3")) {
-                                    SharedPref.setLoggedIn(getApplicationContext(),
-                                            true, response.body().getData().getIdPengguna(),
-                                            response.body().getData().getRole());
-                                    Intent pembeli = new Intent(Login.this, DashboardPembeli.class);
-                                    startActivity(pembeli);
-                                } else {
-                                    Toast.makeText(getApplicationContext(), "Login Gagal",
-                                            Toast.LENGTH_SHORT).show();
+                                switch (response.body().getData().getRole()) {
+                                    case "1": {
+                                        SharedPref.setLoggedIn(getApplicationContext(),
+                                                true, response.body().getData().getIdPengguna(),
+                                                response.body().getData().getRole());
+                                        Intent penjual = new Intent(Login.this, AdminDashboardActivity.class);
+                                        startActivity(penjual);
+                                        break;
+                                    }
+                                    case "2": {
+                                        SharedPref.setLoggedIn(getApplicationContext(),
+                                                true, response.body().getData().getIdPengguna(),
+                                                response.body().getData().getRole());
+                                        Intent penjual = new Intent(Login.this, DashboardPenjual.class);
+                                        startActivity(penjual);
+                                        break;
+                                    }
+                                    case "3":
+                                        SharedPref.setLoggedIn(getApplicationContext(),
+                                                true, response.body().getData().getIdPengguna(),
+                                                response.body().getData().getRole());
+                                        Intent pembeli = new Intent(Login.this, DashboardPembeli.class);
+                                        startActivity(pembeli);
+                                        break;
+                                    default:
+                                        Toast.makeText(getApplicationContext(), "Login Gagal",
+                                                Toast.LENGTH_SHORT).show();
+                                        break;
                                 }
                             } else {
                                 Toast.makeText(getApplicationContext(), "Login Gagal", Toast.LENGTH_SHORT).show();
@@ -100,7 +114,11 @@ public class Login extends AppCompatActivity {
                 Intent penjual = new Intent(Login.this, DashboardPenjual.class);
                 Login.this.startActivity(penjual);
                 finish();
-            } else {
+            }else if(SharedPref.getRole(getApplicationContext()).equals("1")) {
+                Intent penjual = new Intent(Login.this, AdminDashboardActivity.class);
+                Login.this.startActivity(penjual);
+                finish();
+            }else {
                 Intent pembeli = new Intent(Login.this, DashboardPembeli.class);
                 Login.this.startActivity(pembeli);
                 finish();

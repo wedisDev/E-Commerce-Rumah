@@ -14,8 +14,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rcvbayar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="12dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp"
+            android:paddingBottom="60dp"
+            android:paddingHorizontal="12dp"
             tools:listitem="@layout/list_payment"/>
     </ScrollView>
 

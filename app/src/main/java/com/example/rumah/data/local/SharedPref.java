@@ -28,7 +28,7 @@ public class SharedPref {
 
     public static void logout(Context context) {
         SharedPreferences.Editor editor = getPreferences(context).edit();
-        editor.remove(LOGGED_IN_PREF);
+        editor.putBoolean(LOGGED_IN_PREF, false);
         editor.remove(USER_ID_PREF);
         editor.remove(USER_ROLE_PREF);
         editor.apply();

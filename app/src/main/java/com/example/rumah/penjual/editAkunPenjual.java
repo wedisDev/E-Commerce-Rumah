@@ -14,10 +14,21 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.rumah.R;
+import com.example.rumah.data.local.SharedPref;
+import com.example.rumah.data.network.ApiClient;
+import com.example.rumah.data.network.EndPoint;
+import com.example.rumah.data.network.response.get_user.Data;
+import com.example.rumah.data.network.response.get_user.ResponseGetUser;
+import com.example.rumah.data.network.response.login.ResponseLogin;
+import com.example.rumah.data.network.response.success.ResponseSuccess;
 import com.example.rumah.dialog.CustomDialog;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class editAkunPenjual extends AppCompatActivity {
-    EditText nama,alamat,telp,email,username,password;
+    EditText nama,alamat,telp,email,username,password, rek;
     Button simpan;
     ImageButton back;
     ImageView pic;
@@ -35,18 +46,14 @@ public class editAkunPenjual extends AppCompatActivity {
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
         pic =(ImageView) findViewById(R.id.profile);
+        rek =(EditText) findViewById(R.id.rek);
+
+        getUser();
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                back.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent akun = new Intent(editAkunPenjual.this, akunPenjual.class);
-                        editAkunPenjual.this.startActivity(akun);
-                        finish();
-                    }
-                });
+                finish();
             }
         });
 
@@ -70,20 +77,68 @@ public class editAkunPenjual extends AppCompatActivity {
                     toast.show();
                 }
                 else{
-                    CustomDialog customDialog = new CustomDialog(editAkunPenjual.this);
-                Intent simpan = new Intent(editAkunPenjual.this, akunPenjual.class);
+                    String idPengguna = SharedPref.getIdPengguna(getApplicationContext());
+                    if(!idPengguna.isEmpty()) {
+                        EndPoint endPoint = ApiClient.getClient().create(EndPoint.class);
+                        Call<ResponseSuccess> call = endPoint.updateProfile(
+                                idPengguna,
+                                nama.getText().toString(),
+                                alamat.getText().toString(),
+                                telp.getText().toString(),
+                                email.getText().toString(),
+                                username.getText().toString(),
+                                password.getText().toString(),
+                                rek.getText().toString());
+                        call.enqueue(new Callback<ResponseSuccess>() {
+                            @Override
+                            public void onResponse(Call<ResponseSuccess> call, Response<ResponseSuccess> response) {
+                                if (response.body().getMessage().equals("OK")) {
+                                    Toast.makeText(getApplicationContext(), "Berhasil", Toast.LENGTH_SHORT).show();
+                                    Intent akun = new Intent(editAkunPenjual.this, akunPenjual.class);
+                                    editAkunPenjual.this.startActivity(akun);
+                                    finish();
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Gagal", Toast.LENGTH_SHORT).show();
+                                }
+                            }
 
-                customDialog.startDialog();
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        customDialog.dismissDialog();
-                        finish();
+                            @Override
+                            public void onFailure(Call<ResponseSuccess> call, Throwable t) {
+                                Toast.makeText(getApplicationContext(), "Gagal", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
-                },8000);
-                editAkunPenjual.this.startActivity(simpan);
-            }}
+                }}
         });
+    }
+
+    private void getUser() {
+        String idPengguna = SharedPref.getIdPengguna(getApplicationContext());
+        if(!idPengguna.isEmpty()){
+            EndPoint endPoint = ApiClient.getClient().create(EndPoint.class);
+            Call<ResponseGetUser> call = endPoint.getUser(idPengguna);
+
+            call.enqueue(new Callback<ResponseGetUser>() {
+                @Override
+                public void onResponse(Call<ResponseGetUser> call, Response<ResponseGetUser> response) {
+                    Data acc = null;
+                    if (response.body() != null) {
+                        acc = response.body().getData();
+                        alamat.setText(acc.getAlamat());
+                        nama.setText(acc.getNama());
+                        username.setText(acc.getUsername());
+                        telp.setText(acc.getTelp());
+                        password.setText(acc.getPass());
+                        email.setText(acc.getEmail());
+                        rek.setText(acc.getRekening());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseGetUser> call, Throwable t) {
+
+                }
+            });
+        }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.rumah.data.network.response.get_rumah;
+package com.example.rumah.data.network.response.get_dashboard_admin;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -9,6 +9,12 @@ public class DataItem{
 
 	@SerializedName("harga_rumah")
 	private String hargaRumah;
+
+	@SerializedName("transfer")
+	private String transfer;
+
+	@SerializedName("pembeli")
+	private String pembeli;
 
 	@SerializedName("desc_rumah")
 	private String descRumah;
@@ -31,14 +37,12 @@ public class DataItem{
 	@SerializedName("kelurahan")
 	private String kelurahan;
 
-	@SerializedName("email_penjual")
-	private String email_penjual;
-
-	@SerializedName("tgl")
-	private String tgl;
+	@SerializedName("id_pembeli")
+	private int idPembeli;
 
 	@SerializedName("status")
 	private String status;
+
 
 	public String getJudulRumah(){
 		return judulRumah;
@@ -46,6 +50,14 @@ public class DataItem{
 
 	public String getHargaRumah(){
 		return hargaRumah;
+	}
+
+	public String getTransfer(){
+		return transfer;
+	}
+
+	public String getPembeli(){
+		return pembeli;
 	}
 
 	public String getDescRumah(){
@@ -76,12 +88,8 @@ public class DataItem{
 		return kelurahan;
 	}
 
-	public String getTgl(){
-		return tgl;
-	}
-
-	public String getEmailPenjual(){
-		return email_penjual;
+	public int getIdPembeli(){
+		return idPembeli;
 	}
 
 	public String getStatus(){

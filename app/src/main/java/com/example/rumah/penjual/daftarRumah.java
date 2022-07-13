@@ -19,14 +19,16 @@ import com.example.rumah.data.network.response.get_rumah.DataItem;
 import com.example.rumah.data.network.response.get_rumah.ResponseGetRumahByPengguna;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import retrofit2.Call;
 
 public class daftarRumah extends AppCompatActivity {
     ImageButton back;
     RecyclerView rcvRumah;
-    List<DataItem> dataItem;
     private ArrayList<DataItem> dataRumah = new ArrayList<DataItem>();
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +61,12 @@ public class daftarRumah extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<ResponseGetRumahByPengguna> call, retrofit2.Response<ResponseGetRumahByPengguna> response) {
                     if(response.isSuccessful()){
-                        dataRumah = response.body().getData();
-                        adapterRumah rumah= new adapterRumah(dataRumah);
+                        ArrayList<DataItem> data = response.body().getData();
+                        Set<String> nameSet = new HashSet<>();
+                        List<com.example.rumah.data.network.response.get_rumah.DataItem> dataUniqe = data.stream()
+                                .filter(e -> nameSet.add(e.getGambar()))
+                                .collect(Collectors.toList());
+                        adapterRumah rumah= new adapterRumah(dataUniqe, true);
                         rcvRumah.setAdapter(rumah);
                     }
                 }

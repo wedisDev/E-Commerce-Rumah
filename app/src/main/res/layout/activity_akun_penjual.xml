@@ -66,18 +66,18 @@
                 android:layout_alignParentTop="true"/>
 
             <TextView
+                android:id="@+id/tv_name_acc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Addrew Bieber"
-                android:id="@+id/nama"
                 android:layout_below="@+id/profile"
-                android:gravity="center_horizontal"
                 android:layout_alignParentLeft="true"
-                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/poppins"
+                android:gravity="center_horizontal"
+                android:text="Addrew Bieber"
+                android:textColor="@color/white"
                 android:textSize="22dp"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal"/>
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -87,7 +87,7 @@
                 android:orientation="vertical"
                 android:padding="10dp"
                 android:id="@+id/data"
-                android:layout_below="@id/nama">
+                android:layout_below="@id/tv_name_acc">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -107,7 +107,7 @@
                         android:text="Jl. Kedung Baruk 123"
                         android:layout_alignParentRight="true"
                         android:gravity="end"
-                        android:id="@+id/edtalamat"
+                        android:id="@+id/tv_alamat_acc"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         android:fontFamily="@font/poppins"
@@ -134,7 +134,7 @@
                         android:text="0812366587"
                         android:layout_alignParentRight="true"
                         android:gravity="end"
-                        android:id="@+id/edttelp"
+                        android:id="@+id/tv_telp_acc"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         android:fontFamily="@font/poppins"
@@ -161,7 +161,7 @@
                         android:text="addrew@yihaa.com"
                         android:layout_alignParentRight="true"
                         android:gravity="end"
-                        android:id="@+id/edtemail"
+                        android:id="@+id/tv_email_acc"
                         android:textStyle="bold"
                         android:textColor="@color/white"
                         android:fontFamily="@font/poppins"
