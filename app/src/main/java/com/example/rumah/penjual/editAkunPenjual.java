@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ import com.example.rumah.data.network.response.get_user.ResponseGetUser;
 import com.example.rumah.data.network.response.login.ResponseLogin;
 import com.example.rumah.data.network.response.success.ResponseSuccess;
 import com.example.rumah.dialog.CustomDialog;
+import com.google.android.material.textfield.TextInputLayout;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,6 +34,9 @@ public class editAkunPenjual extends AppCompatActivity {
     Button simpan;
     ImageButton back;
     ImageView pic;
+    TextInputLayout input_rek;
+    String role = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +52,13 @@ public class editAkunPenjual extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
         pic =(ImageView) findViewById(R.id.profile);
         rek =(EditText) findViewById(R.id.rek);
+        input_rek =(TextInputLayout) findViewById(R.id.input_rek);
 
         getUser();
+        role = SharedPref.getRole(getApplicationContext());
+        if(role.equals("2")){
+            input_rek.setVisibility(View.VISIBLE);
+        };
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +98,7 @@ public class editAkunPenjual extends AppCompatActivity {
                                 email.getText().toString(),
                                 username.getText().toString(),
                                 password.getText().toString(),
-                                rek.getText().toString());
+                                rek.getText().toString().isEmpty() ? "-" : rek.getText().toString());
                         call.enqueue(new Callback<ResponseSuccess>() {
                             @Override
                             public void onResponse(Call<ResponseSuccess> call, Response<ResponseSuccess> response) {
