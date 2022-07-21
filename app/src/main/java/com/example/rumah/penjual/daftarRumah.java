@@ -66,7 +66,7 @@ public class daftarRumah extends AppCompatActivity {
                         List<com.example.rumah.data.network.response.get_rumah.DataItem> dataUniqe = data.stream()
                                 .filter(e -> nameSet.add(e.getGambar()))
                                 .collect(Collectors.toList());
-                        adapterRumah rumah= new adapterRumah(dataUniqe, true);
+                        adapterRumah rumah= new adapterRumah(dataUniqe, true, getApplicationContext());
                         rcvRumah.setAdapter(rumah);
                     }
                 }

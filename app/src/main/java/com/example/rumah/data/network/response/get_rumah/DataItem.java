@@ -2,7 +2,9 @@ package com.example.rumah.data.network.response.get_rumah;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DataItem{
+import java.io.Serializable;
+
+public class DataItem implements Serializable {
 
 	@SerializedName("judul_rumah")
 	private String judulRumah;

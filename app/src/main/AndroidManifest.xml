@@ -21,6 +21,9 @@
         android:theme="@style/Theme.Rumah"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".pembeli.DetailLahanActivity"
+            android:exported="false" />
+        <activity
             android:name=".admin.AdminDashboardActivity"
             android:exported="false" />
         <activity

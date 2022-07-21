@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -159,7 +160,7 @@ public class DashboardFragment extends Fragment {
             public void onResponse(Call<ResponseGetRumahByPengguna> call, retrofit2.Response<ResponseGetRumahByPengguna> response) {
                 if (response.isSuccessful()) {
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    adapterRumah rumah = new adapterRumah(response.body().getData(), false);
+                    adapterRumah rumah = new adapterRumah(response.body().getData(), false, getContext());
                     recyclerView.setAdapter(rumah);
                 }
                 dismissLoadingDialog();
@@ -167,6 +168,7 @@ public class DashboardFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ResponseGetRumahByPengguna> call, Throwable t) {
+                Log.d("TAG ", "onFailure: "+t.getMessage());
                 dismissLoadingDialog();
             }
         });
