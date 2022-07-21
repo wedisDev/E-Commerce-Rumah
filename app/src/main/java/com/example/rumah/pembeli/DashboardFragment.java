@@ -170,7 +170,7 @@ public class DashboardFragment extends Fragment {
                     List<DataItem> dataUniqe = data.stream()
                             .filter(e -> nameSet.add(e.getGambar()))
                             .collect(Collectors.toList());
-                    adapterRumah rumah = new adapterRumah(dataUniqe, false);
+                    adapterRumah rumah = new adapterRumah(dataUniqe, false, getContext());
                     recyclerView.setAdapter(rumah);
                 }
                 dismissLoadingDialog();
