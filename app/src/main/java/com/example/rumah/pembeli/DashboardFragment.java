@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,10 +20,16 @@ import com.example.rumah.R;
 import com.example.rumah.adapter.adapterRumah;
 import com.example.rumah.data.network.ApiClient;
 import com.example.rumah.data.network.EndPoint;
+import com.example.rumah.data.network.response.get_rumah.DataItem;
 import com.example.rumah.data.network.response.get_rumah.ResponseGetRumahByPengguna;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.stream.Collectors;
 
 import retrofit2.Call;
 
@@ -160,7 +165,12 @@ public class DashboardFragment extends Fragment {
             public void onResponse(Call<ResponseGetRumahByPengguna> call, retrofit2.Response<ResponseGetRumahByPengguna> response) {
                 if (response.isSuccessful()) {
                     recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    adapterRumah rumah = new adapterRumah(response.body().getData(), false, getContext());
+                    ArrayList<DataItem> data = response.body().getData();
+                    Set<String> nameSet = new HashSet<>();
+                    List<DataItem> dataUniqe = data.stream()
+                            .filter(e -> nameSet.add(e.getGambar()))
+                            .collect(Collectors.toList());
+                    adapterRumah rumah = new adapterRumah(dataUniqe, false);
                     recyclerView.setAdapter(rumah);
                 }
                 dismissLoadingDialog();
@@ -168,7 +178,6 @@ public class DashboardFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ResponseGetRumahByPengguna> call, Throwable t) {
-                Log.d("TAG ", "onFailure: "+t.getMessage());
                 dismissLoadingDialog();
             }
         });
