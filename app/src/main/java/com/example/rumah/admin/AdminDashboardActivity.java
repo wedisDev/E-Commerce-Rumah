@@ -45,7 +45,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseDashboardAdmin> call, retrofit2.Response<ResponseDashboardAdmin> response) {
                 if (response.isSuccessful()){
-                    rv_dashboard.setAdapter(new AdapterAdmin(response.body().getData()));
+                    rv_dashboard.setAdapter(new AdapterAdmin(response.body().getData(), getApplicationContext()));
                 }
             }
 

@@ -2,6 +2,8 @@ package com.example.rumah.adapter;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.rumah.R;
+import com.example.rumah.admin.DashboardDetailAdmin;
 import com.example.rumah.data.Constant;
 import com.example.rumah.data.network.response.get_dashboard_admin.DataItem;
+import com.example.rumah.pembeli.DetailLahanActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +29,11 @@ import java.util.List;
 public class AdapterAdmin extends RecyclerView.Adapter<AdapterAdmin.ViewHolder> {
 
     private List<DataItem> rumahlist;
+    private Context context;
 
-    public AdapterAdmin(List<DataItem> rumahlist) {
+    public AdapterAdmin(List<DataItem> rumahlist, Context context) {
         this.rumahlist = rumahlist;
+        this.context = context;
     }
 
     @NonNull
@@ -51,41 +57,47 @@ public class AdapterAdmin extends RecyclerView.Adapter<AdapterAdmin.ViewHolder> 
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
-                AlertDialog builder = new AlertDialog.Builder(view.getContext()).create();
-                View dialogView= LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_detail_rumah,null);
-                TextView tv_detail_judul, tv_detail_alamat, tv_detail_harga, tv_detail_desc,tv_detail_status, tv_detail_pemilik, tv_detail_tgl, tv_detail_pembeli;
-                ImageView iv_detail_gambar;
-                Button btn_detail_beli;
 
-                tv_detail_judul = dialogView.findViewById(R.id.tv_detail_judul);
-                tv_detail_alamat = dialogView.findViewById(R.id.tv_detail_alamat);
-                tv_detail_harga = dialogView.findViewById(R.id.tv_detail_harga);
-                tv_detail_desc = dialogView.findViewById(R.id.tv_detail_desc);
-                iv_detail_gambar = dialogView.findViewById(R.id.iv_detail_gambar);
-                tv_detail_pemilik = dialogView.findViewById(R.id.tv_detail_pemilik);
-                btn_detail_beli = dialogView.findViewById(R.id.btn_detail_beli);
-                tv_detail_pembeli = dialogView.findViewById(R.id.tv_detail_pembeli);
-                tv_detail_status = dialogView.findViewById(R.id.tv_detail_status);
-                tv_detail_pembeli.setVisibility(View.VISIBLE);
-                btn_detail_beli.setVisibility(View.GONE);
-
-
-                Glide.with(holder.itemView.getContext())
-                        .load(Constant.baseImageURL + mr.getGambar())
-                        .into(iv_detail_gambar);
-
-                String status = mr.getStatus() == null ? "tersedia" : mr.getStatus();
-                tv_detail_status.setText("Status : " + status);
-                tv_detail_pemilik.setText("Pemilik : " + mr.getPenjual());
-                tv_detail_pembeli.setText("Pembeli : " + mr.getPembeli());
-                tv_detail_judul.setText("Judul Rumah : " + mr.getJudulRumah());
-                tv_detail_alamat.setText("Alamat Rumah : " + mr.getKelurahan()+", "+mr.getAlamatRumah());
-                tv_detail_harga.setText("Harga Rumah : " + mr.getHargaRumah());
-                tv_detail_desc.setText("Deskripsi Rumah : " + mr.getDescRumah());
-
-                builder.setView(dialogView);
-                builder.setCancelable(true);
-                builder.show();
+                Intent i = new Intent(context, DashboardDetailAdmin.class);
+                i.putExtra("data", mr);
+//                i.putExtra("penjual", isPenjual);
+                view.getContext().startActivity(i);
+//                startActivity(i);
+//                AlertDialog builder = new AlertDialog.Builder(view.getContext()).create();
+//                View dialogView= LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_detail_rumah,null);
+//                TextView tv_detail_judul, tv_detail_alamat, tv_detail_harga, tv_detail_desc,tv_detail_status, tv_detail_pemilik, tv_detail_tgl, tv_detail_pembeli;
+//                ImageView iv_detail_gambar;
+//                Button btn_detail_beli;
+//
+//                tv_detail_judul = dialogView.findViewById(R.id.tv_detail_judul);
+//                tv_detail_alamat = dialogView.findViewById(R.id.tv_detail_alamat);
+//                tv_detail_harga = dialogView.findViewById(R.id.tv_detail_harga);
+//                tv_detail_desc = dialogView.findViewById(R.id.tv_detail_desc);
+//                iv_detail_gambar = dialogView.findViewById(R.id.iv_detail_gambar);
+//                tv_detail_pemilik = dialogView.findViewById(R.id.tv_detail_pemilik);
+//                btn_detail_beli = dialogView.findViewById(R.id.btn_detail_beli);
+//                tv_detail_pembeli = dialogView.findViewById(R.id.tv_detail_pembeli);
+//                tv_detail_status = dialogView.findViewById(R.id.tv_detail_status);
+//                tv_detail_pembeli.setVisibility(View.VISIBLE);
+//                btn_detail_beli.setVisibility(View.GONE);
+//
+//
+//                Glide.with(holder.itemView.getContext())
+//                        .load(Constant.baseImageURL + mr.getGambar())
+//                        .into(iv_detail_gambar);
+//
+//                String status = mr.getStatus() == null ? "tersedia" : mr.getStatus();
+//                tv_detail_status.setText("Status : " + status);
+//                tv_detail_pemilik.setText("Pemilik : " + mr.getPenjual());
+//                tv_detail_pembeli.setText("Pembeli : " + mr.getPembeli());
+//                tv_detail_judul.setText("Judul Rumah : " + mr.getJudulRumah());
+//                tv_detail_alamat.setText("Alamat Rumah : " + mr.getKelurahan()+", "+mr.getAlamatRumah());
+//                tv_detail_harga.setText("Harga Rumah : " + mr.getHargaRumah());
+//                tv_detail_desc.setText("Deskripsi Rumah : " + mr.getDescRumah());
+//
+//                builder.setView(dialogView);
+//                builder.setCancelable(true);
+//                builder.show();
             }
         });
     }
