@@ -25,7 +25,7 @@ import retrofit2.Call;
 
 public class DetailLahanActivity extends AppCompatActivity {
 
-    TextView tv_detail_judul, tv_detail_alamat, tv_detail_harga, tv_detail_desc, tv_detail_pemilik, tv_detail_tgl;
+    TextView tv_detail_judul, tv_detail_alamat, tv_detail_harga, tv_detail_desc, tv_detail_pemilik, tv_detailTgl;
     Button btn_detail_beli;
     ImageButton back_button;
     ImageView iv_detail_gambar;
@@ -40,7 +40,7 @@ public class DetailLahanActivity extends AppCompatActivity {
         Boolean isPenjual = getIntent().getExtras().getBoolean("penjual");
 
         tv_detail_judul = findViewById(R.id.tv_detail_judul);
-        tv_detail_tgl = findViewById(R.id.tv_detail_tgl);
+        tv_detailTgl = findViewById(R.id.tv_detail_tgl);
         tv_detail_harga = findViewById(R.id.tv_detail_harga);
         tv_detail_desc = findViewById(R.id.tv_detail_desc);
         iv_detail_gambar = findViewById(R.id.iv_detail_gambar);
@@ -56,7 +56,7 @@ public class DetailLahanActivity extends AppCompatActivity {
         tv_detail_judul.setText(mr.getJudulRumah());
         tv_detail_harga.setText(mr.getHargaRumah());
         tv_detail_desc.setText(mr.getDescRumah());
-        tv_detail_tgl.setText(mr.getTgl());
+        tv_detailTgl.setText(mr.getTgl());
 
         if(isPenjual){
             btn_detail_beli.setVisibility(View.GONE);

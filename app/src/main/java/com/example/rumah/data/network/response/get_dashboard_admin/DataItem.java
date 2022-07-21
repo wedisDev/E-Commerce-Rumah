@@ -45,6 +45,8 @@ public class DataItem implements Serializable {
 	@SerializedName("status")
 	private String status;
 
+	@SerializedName("tgl")
+	private String tgl;
 
 	public String getJudulRumah(){
 		return judulRumah;
@@ -96,5 +98,9 @@ public class DataItem implements Serializable {
 
 	public String getStatus(){
 		return status;
+	}
+
+	public String getTgl() {
+		return tgl;
 	}
 }

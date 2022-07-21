@@ -14,7 +14,7 @@ import com.example.rumah.data.network.response.get_dashboard_admin.DataItem;
 
 public class DashboardDetailAdmin extends AppCompatActivity {
 
-    TextView statusTransaksi, judulRumah, pemilikRumah, pembeliRumah, alamatRumah, deskripsiRumah, hargaRumah;
+    TextView tglTransaksi, statusTransaksi, judulRumah, pemilikRumah, pembeliRumah, alamatRumah, deskripsiRumah, hargaRumah;
     ImageView picHome;
 
     @SuppressLint("SetTextI18n")
@@ -25,7 +25,7 @@ public class DashboardDetailAdmin extends AppCompatActivity {
 
         DataItem mr = (DataItem) getIntent().getSerializableExtra("data");
 
-//        tglTransaksi = findViewById(R.id.tgl_transaksi);
+        tglTransaksi = findViewById(R.id.tglTransaksi);
         statusTransaksi = findViewById(R.id.status_transaksi);
         judulRumah = findViewById(R.id.judul_rumah);
         pemilikRumah = findViewById(R.id.pemilikRUmah);
@@ -47,5 +47,6 @@ public class DashboardDetailAdmin extends AppCompatActivity {
         alamatRumah.setText(mr.getKelurahan()+" "+mr.getAlamatRumah());
         hargaRumah.setText( mr.getHargaRumah());
         deskripsiRumah.setText(mr.getDescRumah());
+        tglTransaksi.setText(mr.getTgl());
     }
 }
