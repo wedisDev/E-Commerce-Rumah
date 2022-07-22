@@ -74,6 +74,7 @@ public class Login extends AppCompatActivity {
                                                         response.body().getData().getRole());
                                                 Intent penjual = new Intent(Login.this, AdminDashboardActivity.class);
                                                 startActivity(penjual);
+                                                finish();
                                                 break;
                                             }
                                             case "2": {
@@ -82,6 +83,7 @@ public class Login extends AppCompatActivity {
                                                         response.body().getData().getRole());
                                                 Intent penjual = new Intent(Login.this, DashboardPenjual.class);
                                                 startActivity(penjual);
+                                                finish();
                                                 break;
                                             }
                                             case "3":
@@ -90,6 +92,7 @@ public class Login extends AppCompatActivity {
                                                         response.body().getData().getRole());
                                                 Intent pembeli = new Intent(Login.this, DashboardPembeli.class);
                                                 startActivity(pembeli);
+                                                finish();
                                                 break;
                                             default:
                                                 Toast.makeText(getApplicationContext(), "Login Gagal",
