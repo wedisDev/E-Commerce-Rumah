@@ -75,7 +75,7 @@ public class adapterRumah extends RecyclerView.Adapter<adapterRumah.ViewHolder> 
                 Intent i = new Intent(context, DetailLahanActivity.class);
                 i.putExtra("data", mr);
                 i.putExtra("penjual", isPenjual);
-                context.startActivity(i);
+                view.getContext().startActivity(i);
 //                AlertDialog builder = new AlertDialog.Builder(view.getContext()).create();
 //                View dialogView= LayoutInflater.from(view.getContext()).inflate(R.layout.dialog_detail_rumah,null);
 //                TextView tv_detail_judul, tv_detail_alamat, tv_detail_harga, tv_detail_desc, tv_detail_pemilik, tv_detail_tgl;

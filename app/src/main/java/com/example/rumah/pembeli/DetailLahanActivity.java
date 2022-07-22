@@ -68,6 +68,7 @@ public class DetailLahanActivity extends AppCompatActivity {
         btn_detail_beli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("TAG ", "onClick: "+idPengguna+" "+mr.getId()+" "+mr.getEmailPenjual());
                 EndPoint endPoint = ApiClient.getClient().create(EndPoint.class);
                 Call<ResponseSuccess> call = endPoint.beliRumah(idPengguna, String.valueOf(mr.getId()),mr.getEmailPenjual());
                 call.enqueue(new retrofit2.Callback<ResponseSuccess>() {
@@ -81,7 +82,8 @@ public class DetailLahanActivity extends AppCompatActivity {
                     }
                     @Override
                     public void onFailure(Call<ResponseSuccess> call, Throwable t) {
-                        Log.d("response", t.getMessage());
+                        Log.d("TAG ", "onFailure: "+call+" "+t.getMessage());
+                        Toast.makeText(DetailLahanActivity.this, "gagal "+call, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
