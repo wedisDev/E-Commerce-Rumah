@@ -3,6 +3,7 @@ package com.example.rumah;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -112,7 +113,8 @@ public class Login extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<ResponseLogin> call, Throwable t) {
-                            Toast.makeText(getApplicationContext(), "Periksa data kembali", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Periksa data kembali "+t, Toast.LENGTH_SHORT).show();
+                            Log.d("TAG ", "onFailure: "+t);
                         }
                     });
                 }

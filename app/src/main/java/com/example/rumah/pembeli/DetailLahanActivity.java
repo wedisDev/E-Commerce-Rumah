@@ -19,9 +19,13 @@ import com.example.rumah.data.local.SharedPref;
 import com.example.rumah.data.network.ApiClient;
 import com.example.rumah.data.network.EndPoint;
 import com.example.rumah.data.network.response.get_rumah.DataItem;
+import com.example.rumah.data.network.response.get_user.Data;
+import com.example.rumah.data.network.response.get_user.ResponseGetUser;
 import com.example.rumah.data.network.response.success.ResponseSuccess;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DetailLahanActivity extends AppCompatActivity {
 
@@ -29,6 +33,7 @@ public class DetailLahanActivity extends AppCompatActivity {
     Button btn_detail_beli;
     ImageButton back_button;
     ImageView iv_detail_gambar;
+    String emailUser;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -48,6 +53,8 @@ public class DetailLahanActivity extends AppCompatActivity {
         btn_detail_beli = findViewById(R.id.btn_detail_beli);
         back_button = findViewById(R.id.backButton);
 
+        getUser();
+
         Glide.with(getApplicationContext())
                 .load(Constant.baseImageURL + mr.getGambar())
                 .centerCrop()
@@ -56,7 +63,7 @@ public class DetailLahanActivity extends AppCompatActivity {
         tv_detail_judul.setText(mr.getJudulRumah());
         tv_detail_harga.setText(mr.getHargaRumah());
         tv_detail_desc.setText(mr.getDescRumah());
-        tv_detailTgl.setText(mr.getTgl());
+        tv_detailTgl.setText(mr.getEmailPenjual());
 
         if(isPenjual){
             btn_detail_beli.setVisibility(View.GONE);
@@ -68,9 +75,9 @@ public class DetailLahanActivity extends AppCompatActivity {
         btn_detail_beli.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("TAG ", "onClick: "+idPengguna+" "+mr.getId()+" "+mr.getEmailPenjual());
+                Log.d("TAG ", "onClick: "+idPengguna+" "+mr.getId()+" "+emailUser);
                 EndPoint endPoint = ApiClient.getClient().create(EndPoint.class);
-                Call<ResponseSuccess> call = endPoint.beliRumah(idPengguna, String.valueOf(mr.getId()),mr.getEmailPenjual());
+                Call<ResponseSuccess> call = endPoint.beliRumah(idPengguna, String.valueOf(mr.getId()),emailUser);
                 call.enqueue(new retrofit2.Callback<ResponseSuccess>() {
                     @Override
                     public void onResponse(Call<ResponseSuccess> call, retrofit2.Response<ResponseSuccess> response) {
@@ -95,5 +102,29 @@ public class DetailLahanActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void getUser() {
+        String idPengguna = SharedPref.getIdPengguna(getApplicationContext());
+        if(!idPengguna.isEmpty()){
+            EndPoint endPoint = ApiClient.getClient().create(EndPoint.class);
+            Call<ResponseGetUser> call = endPoint.getUser(idPengguna);
+
+            call.enqueue(new Callback<ResponseGetUser>() {
+                @Override
+                public void onResponse(Call<ResponseGetUser> call, Response<ResponseGetUser> response) {
+                    Data acc = null;
+                    if (response.body() != null) {
+                        acc = response.body().getData();
+                        emailUser = acc.getEmail();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseGetUser> call, Throwable t) {
+
+                }
+            });
+        }
     }
 }
