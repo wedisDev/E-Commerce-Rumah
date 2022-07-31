@@ -63,7 +63,7 @@ public class DetailLahanActivity extends AppCompatActivity {
         tv_detail_judul.setText(mr.getJudulRumah());
         tv_detail_harga.setText(mr.getHargaRumah());
         tv_detail_desc.setText(mr.getDescRumah());
-        tv_detailTgl.setText(mr.getEmailPenjual());
+        tv_detailTgl.setText(mr.getTgl());
 
         if(isPenjual){
             btn_detail_beli.setVisibility(View.GONE);

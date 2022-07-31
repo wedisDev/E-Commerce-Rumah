@@ -85,7 +85,6 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/poppins"
-                    android:hint="15 Januari 2022"
                     android:textColor="@color/white" />
 
             </LinearLayout>

@@ -71,6 +71,7 @@
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/activity_list_item.xml" value="0.2234375" />
         <entry key="..\:/Users/IRFANOVA JAYANEGARA/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.2234375" />
         <entry key="..\:/Users/devop/AndroidStudioProjects/E-Commerce-Rumah/app/src/main/res/layout/activity_akun_penjual.xml" value="0.17654508611955422" />
+        <entry key="..\:/Users/devop/AndroidStudioProjects/E-Commerce-Rumah/app/src/main/res/layout/activity_daftar_rumah.xml" value="0.22554347826086957" />
         <entry key="..\:/Users/devop/AndroidStudioProjects/E-Commerce-Rumah/app/src/main/res/layout/activity_dashboard_detail_admin.xml" value="0.22554347826086957" />
         <entry key="..\:/Users/devop/AndroidStudioProjects/E-Commerce-Rumah/app/src/main/res/layout/activity_detail_lahan.xml" value="0.33" />
         <entry key="..\:/Users/devop/AndroidStudioProjects/E-Commerce-Rumah/app/src/main/res/layout/activity_transfer.xml" value="0.22554347826086957" />
@@ -79,6 +80,7 @@
         <entry key="..\:/Users/devop/AndroidStudioProjects/E-Commerce-Rumah/app/src/main/res/layout/dialog_login_alert.xml" value="0.25" />
         <entry key="..\:/Users/devop/AndroidStudioProjects/E-Commerce-Rumah/app/src/main/res/layout/fragment_akun.xml" value="0.17654508611955422" />
         <entry key="..\:/Users/devop/AndroidStudioProjects/E-Commerce-Rumah/app/src/main/res/layout/list_payment.xml" value="0.22554347826086957" />
+        <entry key="..\:/Users/devop/AndroidStudioProjects/E-Commerce-Rumah/app/src/main/res/layout/list_rumah.xml" value="0.22554347826086957" />
         <entry key="app/src/main/res/drawable/back.xml" value="0.191" />
         <entry key="app/src/main/res/layout/activity_admin_dashboard.xml" value="0.1828125" />
         <entry key="app/src/main/res/layout/activity_akun_penjual.xml" value="0.16822916666666668" />
